@@ -1,0 +1,89 @@
+
+/* Clearfix */
+
+.clearfix {
+    margin:auto;
+	width: 960px;
+	padding-top: 1px;
+}
+.clearfix:after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0;
+}
+* html .clearfix             { zoom: 1 } /* IE6 */
+*:first-child+html .clearfix { zoom: 1 } /* IE7 */
+
+header, nav { display: block } /* HTML5 tags */
+/* Navigation */
+.clearfix ul li {/*
+	display: inline-block;
+	position: relative;
+	float: left;
+*/
+}
+.clearfix ul li a {
+	background: url(../img/bgNav.png) no-repeat;
+
+	height: 80px;
+	width: 155px;
+	text-align: center;
+	display: block;
+	position: relative;
+	float: left;
+}
+.clearfix.last { margin-right: 0 }
+
+#menu_topo01 { background-position: 0 0;height: 60px; width: 144px; text-indent: -9999px; }
+#menu_topo02 { background-position: -145px 0px;height: 60px; width: 126px; text-indent: -9999px;}
+#menu_topo03 { background-position: -275px 0px;height: 60px; width: 121px; text-indent: -9999px;}
+#menu_topo04 { background-position: -396px 0px; height: 60px; width: 233px; text-indent: -9999px;}
+#menu_topo05 { background-position: -629px 0px;height: 60px; width: 200px; text-indent: -9999px;}
+#menu_topo06 {background-position: -837px 0px; width: 125px;height: 60px; width: 133px; text-indent: -9999px;}
+
+
+
+.clearfixul li a span {
+	background: url(../img/bgNav.png) no-repeat;
+	display: none;
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 80px;
+	width: 155px;
+}
+
+#menu_topo01 span { background-position: 0 -80px }
+#menu_topo02 span {background-position: -145px -82px;}
+#menu_topo03 span {background-position: -272px -80px; }
+#menu_topo04 span { background-position: -397px -80px;width: 250px; }
+#menu_topo05 span {background-position: -628px -80px;width: 250px;}
+#menu_topo06 span { background-position: -827px -80px; }
+
+/* Hover States */
+.cssOnly ##menu_topo01:hover { background-position: 0 -80px }
+.cssOnly ##menu_topo02:hover { background-position: -155px -80px }
+.cssOnly ##menu_topo03:hover { background-position: -310px -80px }
+.cssOnly ##menu_topo04 span:hover { background-position: -465px -80px }
+.cssOnly ##menu_topo05 span:hover { background-position: -620px -80px }
+.cssOnly ##menu_topo06:hover { background-position: -775px -80px }
+
+/* Active State 
+.active #nHom { background-position: 0 -160px }
+*/
+
+
+#quatro UL  {margin-left: 127px!important;}
+
+#cinco UL {margin-left: 125px!important; background-image: url(../img/menu-topo-curva-grande.png)!important;margin-top: 55px!important;}
+
+#cinco UL LI {
+width: 247px;
+}
+
+#cinco UL LI A {
+width: 225px;
+}

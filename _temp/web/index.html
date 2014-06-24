@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]>
+<!--> <html lang="pt-BR" class="no-js"> <!--<![endif]-->
+<head>
+    <title>Home page mvc</title>
+    <meta name="Description" content="">
+    <meta name="keywords" content="Paula Pires">
+
+    <meta name="Author" content="Kbytes Webstudio - Contato: heberth20@gmail.com">
+    <meta name="copyright" content="Paula Pires - Todos os direitos reservados">
+    <meta name="robots" content="index,follow">
+    <meta name="revisit-after" content="7 Days">
+    <meta http-equiv="imagetoolbar" content="false">
+    <meta http-equiv="Content-Language" content="pt-br">
+    <meta name="language" content="Portuguese">
+    <meta charset="iso-8859-1">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" media="(device-height: 568px)">
+    
+    <!-- Apple Web App -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+	
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/ico">
+    <link rel="apple-touch-icon-precomposed" href="img/appicon57.png">
+    <link rel="apple-touch-icon-precomposed" href="img/appicon57.png" sizes="76x76">
+    <link rel="apple-touch-icon-precomposed" href="img/appicon114.png" sizes="114x114">
+    <link rel="apple-touch-icon-precomposed" href="img/appicon152.png" sizes="152x152">
+
+     <!-- Comum -->
+    <link href="css/reset.css" media="all" rel="stylesheet" type="text/css">
+    <link href="css/screen.css" media="all" rel="stylesheet" type="text/css">
+    
+    <script type="text/javascript" src="js/lib/modernizr-2.6.2.min.js"></script>
+    <script type="text/javascript" src="js/check-device.js"></script>
+</head>
+<body>
+    <div class="divaudio">
+        <audio id="audio" tabindex="0" controls preload="preload">
+          <source src="trilha.mp3">
+        </audio>
+    </div>
+    <div id="fb-root"></div>
+    <div class="msgFnd" onClick="chef.boxOpenClose('close');"></div>
+    <div class="msgBox">
+    </div>
+
+<section class="wrapper">
+    <header>
+        <img src="img/logo.png" class="logo" alt="Paula Pires">
+        <nav>
+        	<ul>
+            	<li class="quem-sou"><span><a href="#">Quem Sou</a></span>
+                    <div>
+                        <ul class="top-menu">
+                        <li><a href="#"> - Perfil</a></li>
+                        <li><a href="#"> - Vídeos de Apresentação</a></li>
+                        <li><a href="#"> - Formação</a></li>
+                        <li><a href="#"> - Depoimentos</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="videos"><span><a href="#">Vídeos</a></span>
+                    <div>
+                        <ul class="top-menu">
+                        <li><a href="#"> - Vídeo de Apresentação</a></li>
+                        <li><a href="#"> - As Técnicas</a></li>
+                        <li><a href="#"> - Temas Diversos:</a></li>
+                        <li class="sub"><a href="#">&bull; Chacras</a></li>
+                        <li class="sub"><a href="#">&bull; Alquimia</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="na-midia"><span><a href="#">Na mídia</a></span>
+                    <div>
+                        <ul class="top-menu">
+                        <li><a href="#"> - TV</a></li>
+                        <li><a href="#"> - Net</a></li>
+                        <li><a href="#"> - Mídia Impressa</a></li>
+                        <li><a href="#"> - Rádio</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="consulta-especial"><span><a href="#">Consulta Especial</a></span>
+                    <div>
+                        <ul class="top-menu">
+                        <li><a href="#"> - O que é?</a></li>
+                        <li><a href="#"> - Vídeo Explicativo</a></li>
+                        <li><a href="#"> - Contato</a></li>
+                        <li><a href="#"> - Formulário de Atendimento</a></li>
+                        <li><a href="#"> - Dúvidas</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="testes-online"><span><a href="#">Testes On-line</a></span>
+                    <div>
+                        <ul class="top-menu">
+                        <li><a href="#"> - Você se alimenta bem?</a></li>
+                        <li><a href="#"> - Os elementos da natureza estão em equilíbrio dentro de você?</a></li>
+                        <li><a href="#"> - Qual é seu Dosha (biotipo) dentro da Filosofia Ayurvédica?</a></li>
+                        <li><a href="#"> - Como transformar sua vida?</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="contato"><span><a href="#">Contato</a></span>
+                    <!--
+                    <ul class="top-menu">
+                    <li><a href="http://floraisastrologicos.com.br/Paula-Pires/155/Envio-de-Mensagem"> - Envio de Mensagem</a></li>
+                    <li><a href="http://floraisastrologicos.com.br/Paula-Pires/156/Indique%20este%20Site"> - Indique este Site</a></li>
+                    </ul>
+                    -->
+                </li>
+            </ul>
+        </nav>
+    </header>
+  
+    <section class="content">
+        <article class="lat-esq">
+            <ul class="lat">
+                <li class="first"></li>
+                <li class="esp-left"><h1 class="size-22">Técnicas</h1></li>
+                <li class="esp-left">
+                	<ul class="tecnicas">
+                    	<li class="header">&nbsp;</li>
+                        <li>
+                            <div class="thumb"><img src="img/menu_esq_top.png" class="mask"><div class="sepia">&nbsp;</div><img src="img/_tecnica1.jpg" class="mini"></div>
+                            <div class="txtLabel"><label><p><span>Terapeuta Floral Alquímica</span></p></label></div>
+                            <div class="over"><img src="img/menu_esq_barra.png" class="barra-over"><img src="img/btn_over_tecnicas.png" class="btn-over"></div>
+                            <div class="cl"></div>
+                            <ul class="lat-esq-menu">
+                            <li><a href="#">- O que é Terapia Floral Alquímica?</a></li>
+                            <li><a href="#">- Para que serve a Terapia Floral Alquímica?</a></li>
+                            <li><a href="#">- Como utilizo a Terapia Floral Alquímica?</a></li>
+                            <li><a href="#">- Consulta de Terapia Floral Alquímica</a></li>
+                            <li><a href="#">- Vídeo de Terapia Floral Alquímica</a></li>
+                            <li><a href="#">- Contato</a></li>
+                            <li><a href="#">- Formulário de Atendimento</a></li>
+                            <li><a href="#">- Dúvidas</a></li>
+                            </ul>
+                        </li>
+                        <li><!-- class="selected"-->
+                            <div class="thumb"><img src="img/menu_esq_rep.png" class="mask"><div class="sepia">&nbsp;</div><img src="img/_tecnica2.jpg" class="mini"></div>
+                            <div class="txtLabel"><label><p><span>Professional & Self Coaching</span></p></label></div>
+                            <div class="over"><img src="img/menu_esq_barra.png" class="barra-over"><img src="img/btn_over_tecnicas.png" class="btn-over"></div>
+                            <div class="cl"></div>
+                            <ul class="lat-esq-menu">
+                            <li><a href="#">- O que é Terapia Floral Alquímica?</a></li>
+                            <li><a href="#">- Para que serve a Terapia Floral Alquímica?</a></li>
+                            <li><a href="#">- Como utilizo a Terapia Floral Alquímica?</a></li>
+                            <li><a href="#">- Consulta de Terapia Floral Alquímica</a></li>
+                            <li><a href="#">- Vídeo de Terapia Floral Alquímica</a></li>
+                            <li><a href="#">- Contato</a></li>
+                            <li><a href="#">- Formulário de Atendimento</a></li>
+                            <li><a href="#">- Dúvidas</a></li>
+                            </ul>
+                        </li>
+						<li>
+                            <div class="thumb"><img src="img/menu_esq_rep.png" class="mask"><div class="sepia">&nbsp;</div><img src="img/_tecnica3.jpg" class="mini"></div>
+                            <div class="txtLabel"><label><p><span>Astróloga</span></p></label></div>
+                            <div class="over"><img src="img/menu_esq_barra.png" class="barra-over"><img src="img/btn_over_tecnicas.png" class="btn-over"></div>
+                            <div class="cl"></div>
+                            <ul class="lat-esq-menu">
+                            <li><a href="#">- O que é Terapia Floral Alquímica?</a></li>
+                            <li><a href="#">- Para que serve a Terapia Floral Alquímica?</a></li>
+                            <li><a href="#">- Como utilizo a Terapia Floral Alquímica?</a></li>
+                            <li><a href="#">- Consulta de Terapia Floral Alquímica</a></li>
+                            <li><a href="#">- Vídeo de Terapia Floral Alquímica</a></li>
+                            <li><a href="#">- Contato</a></li>
+                            <li><a href="#">- Formulário de Atendimento</a></li>
+                            <li><a href="#">- Dúvidas</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="thumb"><img src="img/menu_esq_rep.png" class="mask"><div class="sepia">&nbsp;</div><img src="img/_tecnica4.jpg" class="mini"></div>
+                            <div class="txtLabel"><label><p><span>Numeróloga</span></p></label></div>
+                            <div class="over"><img src="img/menu_esq_barra.png" class="barra-over"><img src="img/btn_over_tecnicas.png" class="btn-over"></div>
+                            <div class="cl"></div>
+                        </li>
+                        <li>
+                            <div class="thumb"><img src="img/menu_esq_rep.png" class="mask"><div class="sepia">&nbsp;</div><img src="img/_tecnica5.jpg" class="mini"></div>
+                            <div class="txtLabel"><label><p><span>Fitoterapeuta</span></p></label></div>
+                            <div class="over"><img src="img/menu_esq_barra.png" class="barra-over"><img src="img/btn_over_tecnicas.png" class="btn-over"></div>
+                            <div class="cl"></div>
+                        </li>
+                        <li>
+                            <div class="thumb"><img src="img/menu_esq_rep.png" class="mask"><div class="sepia">&nbsp;</div><img src="img/_tecnica2.jpg" class="mini"></div>
+                            <div class="txtLabel"><label><p><span>Acupunturista</span></p></label></div>
+                            <div class="over"><img src="img/menu_esq_barra.png" class="barra-over"><img src="img/btn_over_tecnicas.png" class="btn-over"></div>
+                            <div class="cl"></div>
+                        </li>
+                        <li>
+                            <div class="thumb"><img src="img/menu_esq_rep.png" class="mask"><div class="sepia">&nbsp;</div><img src="img/_tecnica7.jpg" class="mini"></div>
+                            <div class="txtLabel"><label><p><span>Reeducadora Alimentar</span></p></label></div>
+                            <div class="over"><img src="img/menu_esq_barra.png" class="barra-over"><img src="img/btn_over_tecnicas.png" class="btn-over"></div>
+                            <div class="cl"></div>
+                        </li>
+                        <li>
+                            <div class="thumb"><img src="img/menu_esq_rep.png" class="mask"><div class="sepia">&nbsp;</div><img src="img/_tecnica2.jpg" class="mini"></div>
+                            <div class="txtLabel"><label><p><span>Iridóloga</span></p></label></div>
+                            <div class="over"><img src="img/menu_esq_barra.png" class="barra-over"><img src="img/btn_over_tecnicas.png" class="btn-over"></div>
+                            <div class="cl"></div>
+                        </li>
+                        <li>
+                            <div class="thumb"><img src="img/menu_esq_rep.png" class="mask"><div class="sepia">&nbsp;</div><img src="img/_tecnica2.jpg" class="mini"></div>
+                            <div class="txtLabel"><label><p><span>Consultora de Feng-Shui</span></p></label></div>
+                            <div class="over"><img src="img/menu_esq_barra.png" class="barra-over"><img src="img/btn_over_tecnicas.png" class="btn-over"></div>
+                            <div class="cl"></div>
+                        </li>
+                        <li>
+                            <div class="thumb"><img src="img/menu_esq_rep.png" class="mask"><div class="sepia">&nbsp;</div><img src="img/_tecnica10.jpg" class="mini"></div>
+                            <div class="txtLabel"><label><p><span>Terapeuta Ayurvédica</span></p></label></div>
+                            <div class="over"><img src="img/menu_esq_barra.png" class="barra-over"><img src="img/btn_over_tecnicas.png" class="btn-over"></div>
+                            <div class="cl"></div>
+                        </li>
+						<li>
+                            <div class="thumb"><img src="img/menu_esq_bot.png" class="mask"><div class="sepia">&nbsp;</div><img src="img/_tecnica2.jpg" class="mini"></div>
+                            <div class="txtLabel"><label><p><span>Instrutora de Meditação</span></p></label></div>
+                            <div class="over"><img src="img/menu_esq_barra.png" class="barra-over"><img src="img/btn_over_tecnicas.png" class="btn-over"></div>
+                            <div class="cl"></div>
+                        </li>
+                        <li class="footer">&nbsp;</li>
+                    </ul>
+                </li>
+                <li class="last"></li>
+            </ul>
+        </article>
+        
+        <article class="miolo">
+        	<nav>
+                <h1 class="tit size-25">Bem Vindo</h1>
+                <div class="sub2">
+                	<a href="#">Vídeo de Apresentação</a>
+                </div>
+                <div class="cl"></div>
+                
+                
+                <div class="size"><a href="javascript:sizeMenos()" class="size-menos">-A</a> &nbsp;<a href="javascript:sizeMais()" class="size-mais">+A</a></div>
+                <!--
+                <div class="sub">
+                	<a href="#">Vídeo de Apresentação</a>
+                </div>
+                
+                <div class="cl"></div>
+                
+                <div class="sub2">
+                	<a href="#">Vídeo de Apresentação</a>
+                    <div class="cl"></div>
+                </div>
+                -->
+                
+                <div class="cl"></div>
+            </nav>
+            <div class="texto">
+                Este site foi idealizado para, através de textos, imagens, vídeos, testes e áudios  demonstrar como funciona um trabalho profundo de reequilíbrio interior, para trazer maiores informações sobre um método que inclui diversas técnicas de harmonização e que está embasado na busca da raiz dos desequilíbrios em todas elas.<br><br>
+                Se uma técnica pode ser utilizada de forma independente da outra, todas também podem ser unidas conforme os objetivos e necessidades.<br><br>
+                Que todas as possibilidades aqui colocadas lhe sejam prazerosas e lhe tragam inspiração de forma pura e verdadeira.
+            </div>
+            <div class="foto">
+            	<img src="img/_imagem1.jpg">
+            </div>
+            <!--
+            <div class="video">
+                <object width="555" height="312">
+                <param name="movie" value="http://www.youtube.com/v/Qwpz_6DWVXQ?hl=pt_BR&amp;version=3"></param>
+                <param name="allowFullScreen" value="true"></param>
+                <param name="allowscriptaccess" value="always"></param>
+                <embed src="http://www.youtube.com/v/Qwpz_6DWVXQ?hl=pt_BR&amp;version=3" type="application/x-shockwave-flash" width="555" height="312" allowscriptaccess="always" allowfullscreen="true"></embed>
+                </object>
+            </div>
+            -->
+            <div class="share">
+            	<div class="share-fb"><div class="fb-share-button" data-href="http://astrologiaalquimica.com.br/_temp/" data-type="button_count"></div></div>
+                <div class="share-tw"><a href="http://astrologiaalquimica.com.br/_temp/" class="twitter-share-button"  data-via="Paula Pires" data-lang="en">Tweet</a></div>
+                <div class="share-go"><div class="g-plus" data-action="share" data-annotation="bubble" data-href="http://astrologiaalquimica.com.br/_temp/"></div></div>
+
+                <div class="cl"></div>
+                
+                <div class="comments-fb"><div class="fb-comments" data-href="http://astrologiaalquimica.com.br/_temp/" data-width="555" data-numposts="1" data-colorscheme="light"></div></div>
+<!--
+                <div class="comments-go"><div class="g-comments" data-href="http://astrologiaalquimica.com.br/_temp/" data-width="555" data-first_party_property="BLOGGER" data-view_type="FILTERED_POSTMOD"></div></div>
+-->
+            </div>
+        </article>
+        <article class="lat-dir">
+            <ul>
+                <li class="first"></li>
+                <li>
+                	<div class="player"><a href="javascript:playmp3()">On</a> &nbsp; / &nbsp; <a href="javascript:stopmp3()">Off</a></div>
+
+                    <form name="form_busca" method="post" action="#">
+                    <div class="busca">
+                        <input type="text" name="busca" id="busca" value="O que voc&ecirc; procura?" class="fld-busca"><input type="submit" value="" class="btn-busca">
+                        <div class="cl"></div>
+                    </div>
+                    </form>
+                    
+                    <div class="rede-focial">
+                    	<div class="rede-yt">youtube</div>
+                        <div class="rede-fb">facebook</div>
+                        <div class="rede-tw">twitter</div>
+                        <div class="rede-it">intagram</div>
+                        <div class="rede-go">google plus</div>
+                    </div>
+                    <div class="cl"></div>
+                    
+                    <h1 class="size-19 bg"><a href="#">Encomende<br> Seu Mapa</a></h1>
+                    <div class="menu">
+                        <ul class="lat-dir-menu">
+                            <li><a href="#">- Mapa Astral</a></li>
+                            <li><a href="#">- Mapa de Previsão</a></li>
+                            <li><a href="#">- Mapa de Sinatria</a></li>
+                        </ul>
+	                    <a href="#">Mapas Astrológicos</a>
+                    </div>
+                    <div class="menu">
+                        <ul class="lat-dir-menu">
+                            <li><a href="#">- Mapa Numerológico</a></li>                    
+                            <li><a href="#">- Mapa de Ano Pessoal e suas tendências</a></li>                    
+                            <li><a href="#">- Mapa de Sinastria Numerológica</a></li>                    
+                            <li><a href="#">- Mapa Empresarial</a></li>                    
+                        </ul>
+                    	<a href="#">Mapas Numerológicos</a>
+                    </div>
+
+                    <h1 class="size-19 bg"><a href="#">Astrologia</a></h1>
+                    <div class="esp-left"><a href="#">Previsão Astrológica Semanal</a></div>
+                    <div class="esp-left"><a href="#">Previsão Astrológica Mensal</a></div>
+                    <div class="esp-left"><a href="#">Previsão Astrológica Anual</a></div>
+
+                    <h1 class="size-19 bg"><a href="#">Teste</a></h1>
+                    <div class="esp-left"><a href="#">Como transformar sua vida?</a></div>
+
+                    <h1 class="size-19 bg"><a href="#">Atendimento<br> On-Line</a></h1>
+                    <div class="esp-left"><a href="#">Contato</a></div>
+                    <div class="esp-left"><a href="#">Formulário de Atendimento</a></div>
+                    <div class="esp-left"><a href="#">Dúvidas</a></div>
+
+                    <h1 class="size-17 unico space"><a href="#">Matérias Autorais</a></h1>
+                    <h1 class="size-17 unico"><a href="#">Dúvidas Frequentes</a></h1>
+                    <h1 class="size-17 unico"><a href="#">Imagens</a></h1>
+                    <h1 class="size-17 unico"><a href="#">&Aacute;udios</a></h1>
+                    <div class="menu big">
+                        <ul class="lat-dir-menu">
+                            <li><a href="#">- Textos Afins</a></li>
+                            <li><a href="#">- Biblioteca</a></li>
+                            <li><a href="#">- Orações</a></li>
+                            <li><a href="#">- Meus Parceiros</a></li>
+                            <li><a href="#">- Concepção Geral do Site</a></li>
+                        </ul>
+                        <h1 class="size-17"><a href="#">Extras</a></h1>
+                    </div>
+                    
+                </li>
+                <li class="last"></li>
+            </ul>
+        </article>
+        
+        <div class="cl"></div>
+    </section>
+    
+    <footer>
+    	<div class="rede-social">
+        	<div class="rede1">
+				<div class="fb-like-box" data-href="https://www.facebook.com/paulapiresastro" data-width="490px" data-colorscheme="light" data-show-faces="true" data-header="false" data-stream="false" data-show-border="false"></div>
+            </div>
+            <div class="rede2">
+            	<a class="twitter-timeline" href="https://twitter.com/paulapiresastro" width="470" height="190" data-border-color="transparent" data-link-color="#294507" data-tweet-limit="2" data-chrome="noborders transparent" data-widget-id="454814578405146624">Tweets by @paulapiresastro</a>
+            </div>
+            <div class="cl"></div>
+        </div>
+        <div class="btn-expand"><a href="javascript:expand()">Expandir mapa do site</a></div>
+        <div class="mapa-site">
+            <nav class="col1">
+                <h1 class="size-17">Principal</h1>
+                <img src="img/img_risco.png" width="100%" height="1">
+                
+                <h2><a href="#">Quem sou</a></h2>
+                <ul>
+                <li><a href="#">Perfil</a></li>
+                <li><a href="#">Vídeos de Apresentação</a></li>
+                <li><a href="#">Formação</a></li>
+                <li><a href="#">Depoimentos</a></li>
+                </ul>
+                
+                <h2><a href="#">Videos</a></h2>
+                <ul>
+                <li><a href="#">Vídeo de Apresentação</a></li>
+                <li><a href="#">As Técnicas</a></li>
+                <li><a href="#">Temas Diversos:</a></li>
+                <li class="sub"><a href="#">- Chacras</a></li>
+                <li class="sub"><a href="#">- Alquimia</a></li>
+                </ul>
+                
+                <h2><a href="#">Na Mídia</a></h2>
+                <ul>
+                <li><a href="#">TV</a></li>
+                <li><a href="#">Net</a></li>
+                <li><a href="#">Mídia Impressa</a></li>
+                <li><a href="#">Rádio</a></li>
+                </ul>
+                
+                <h2><a href="#">Consulta Especial</a></h2>
+                <ul>
+                <li><a href="#">O que é?</a></li>
+                <li><a href="#">Vídeo Explicativo</a></li>
+                <li><a href="#">Contato</a></li>
+                <li><a href="#">Formulário de Atendimento</a></li>
+                <li><a href="#">Dúvidas</a></li>
+                </ul>
+                
+                <h2><a href="#">Testes On-line</a></h2>
+                <ul>
+                <li><a href="#">Você se alimenta bem?</a></li>
+                <li><a href="#">Os elementos da natureza estão em equilíbrio dentro de você?</a></li>
+                <li><a href="#">Qual é seu Dosha (biotipo) dentro da Filosofia Ayurvédica?</a></li>
+                <li><a href="#">Como transformar sua vida?</a></li>
+                </ul>
+                
+                <h2><a href="#">Contato</a></h2>
+                <ul>
+                <li><a href="#">Envio de Mensagem</a></li>
+                <li><a href="#">Indique este Site</a></li>
+                </ul>
+            </nav>
+            <nav class="col2">
+                <h1 class="size-17">Técnicas</h1>
+                <img src="img/img_risco.png" width="100%" height="1">
+                <article>
+                    <h2><a href="#">Terapeuta Floral Alquímica</a></h2>
+                    <ul>
+                        <li><a href="#">O que é Terapia Floral Alquímica?</a></li>
+                        <li><a href="#">Para que serve a Terapia Floral Alquímica?</a></li>
+                        <li><a href="#">Como utilizo a Terapia Floral Alquímica?</a></li>
+                        <li><a href="#">Consulta de Terapia Floral Alquímica</a></li>
+                        <li><a href="#">Vídeo de Terapia Floral Alquímica</a></li>
+                        <li><a href="#">Contato</a></li>
+                        <li><a href="#">Formulário de Atendimento</a></li>
+                        <li><a href="#">Dúvidas</a></li>
+                    </ul>
+                </article>
+                <article>
+                    <h2><a href="#">Professional &amp; Self Coaching</a></h2>
+                    <ul>
+                        <li><a href="#">O que é Coaching?</a></li>
+                        <li><a href="#">Para que serve o Coaching?</a></li>
+                        <li><a href="#">Como utilizo o Coaching?</a></li>
+                        <li><a href="#">Atendimento de Coaching</a></li>
+                        <li><a href="#">Vídeo explicativo sobre Coaching</a></li>
+                        <li><a href="#">Contato</a></li>
+                        <li><a href="#">Formulário de Atendimento</a></li>
+                        <li><a href="#">Dúvidas</a></li>
+                    </ul>
+                </article>
+                <article>
+                    <h2><a href="#">Astróloga</a></h2>
+                    <ul>
+                        <li><a href="#">O que é Astrologia?</a></li>
+                        <li><a href="#">Para que serve a Astrologia?</a></li>
+                        <li><a href="#">Como utilizo a Astrologia?</a></li>
+                        <li><a href="#">Fazendo seu Mapa Astrológico</a></li>
+                        <li><a href="#">Vídeo explicativo sobre Astrologia</a></li>
+                        <li><a href="#">Contato</a></li>
+                        <li><a href="#">Formulário de Atendimento</a></li>
+                        <li><a href="#">Dúvidas</a></li>
+                </ul>
+                </article>
+                <div class="cl"></div>
+                <article>
+                    <h2><a href="#">Numeróloga</a></h2> 
+                    <ul>
+                        <li><a href="#">O que é Numerologia?</a></li>
+                        <li><a href="#">Para que serve a Numerologia?</a></li>
+                        <li><a href="#">Como utilizo a Numerologia?</a></li>
+                        <li><a href="#">Fazendo seu Mapa Numerológico</a></li>
+                        <li><a href="#">Vídeo explicativo de Numerologia</a></li>
+                        <li><a href="#">Contato</a></li>
+                        <li><a href="#">Formulário de Atendimento</a></li>
+                        <li><a href="#">Dúvidas</a></li>
+                    </ul>
+                </article>
+                <article>
+                    <h2><a href="#">Fitoterapeuta</a></h2>
+                    <ul>
+                        <li><a href="#"> O que é Fitoterapia?</a></li>
+                        <li><a href="#">Para que serve a Fitoterapia?</a></li>
+                        <li><a href="#">Como utilizo a Fitoterapia?</a></li>
+                        <li><a href="#">Consulta de Fitoterapia</a></li>
+                        <li><a href="#">Vídeo explicativo sobre Fitoterapia</a></li>
+                        <li><a href="#">Teste - Os elementos da natureza estão em   equilíbrio dentro de você?</a></li>
+                        <li><a href="#">Contato</a></li>
+                        <li><a href="#">Formulário de Atendimento</a></li>
+                        <li><a href="#">Dúvidas</a></li>
+                    </ul>
+                </article>
+                <article>
+                    <h2><a href="#">Acupunturista</a></h2>
+                    <ul>
+                        <li><a href="#">O que é Acupuntura?</a></li>
+                        <li><a href="#">Para que serve a Acupuntura?</a></li>
+                        <li><a href="#">Como utilizo a Acupuntura?</a></li>
+                        <li><a href="#">Atendimento de Acupuntura</a></li>
+                        <li><a href="#">Vídeo explicativo sobre Acupuntura</a></li>
+                        <li><a href="#">Contato</a></li>
+                        <li><a href="#">Formulário de Atendimento</a></li>
+                        <li><a href="#">Dúvidas</a></li>
+                    </ul>
+                </article>
+                <div class="cl"></div>
+                <article>
+                    <h2><a href="#">Reeducadora Alimentar</a></h2>
+                    <ul>
+                        <li><a href="#">O que é Reeducação Alimentar?</a></li>
+                        <li><a href="#">Para que serve a Reeducação Alimentar?</a></li>
+                        <li><a href="#">Como utilizo a Reeducação Alimentar?</a></li>
+                        <li><a href="#">Atendimento de Reeducação Alimentar</a></li>
+                        <li><a href="#">Vídeo explicativo sobre Reeducação Alimentar</a></li>
+                        <li><a href="#">Teste - Você se Alimenta Bem?</a></li>
+                        <li><a href="#">Contato</a></li>
+                        <li><a href="#">Formulário de Atendimento</a></li>
+                        <li><a href="#">Dúvidas</a></li>
+                    </ul>
+                </article>
+                <article>
+                    <h2><a href="#">Iridóloga</a></h2> 
+                    <ul>
+                        <li><a href="#">O que é Iridologia?</a></li>
+                        <li><a href="#">Para que serve a Iridologia?</a></li>
+                        <li><a href="#">Como utilizo a Iridologia?</a></li>
+                        <li><a href="#">Atendimento de Iridologia</a></li>
+                        <li><a href="#">Vídeo explicativo sobre Iridologia</a></li>
+                        <li><a href="#">Contato</a></li>
+                        <li><a href="#">Formulário de Atendimento</a></li>
+                    </ul>
+                </article>
+                <article>
+                    <h2><a href="#">Consultora de Feng Shui</a></h2>
+                    <ul>
+                        <li><a href="#">O que é Feng Shui?</a></li>
+                        <li><a href="#">Para que serve o Feng Shui?</a></li>
+                        <li><a href="#">Como utilizo o Feng Shui?</a></li>
+                        <li><a href="#">Consultoria de Feng Shui</a></li>
+                        <li><a href="#">Vídeo sobre Feng Shui</a></li>
+                        <li><a href="#">Contato</a></li>
+                        <li><a href="#">Formulário de Atendimento</a></li>
+                        <li><a href="#">Dúvidas</a></li>
+                    </ul>
+                </article>
+                <div class="cl"></div>
+                <article>
+                    <h2><a href="#">Terapeuta Ayurvédica</a></h2>
+                    <ul>
+                        <li><a href="#">O que é Terapia Ayurvédica?</a></li>
+                        <li><a href="#">Para que serve a Terapia Ayurvédica?</a></li>
+                        <li><a href="#">Como utilizo a Terapia Ayurvédica?</a></li>
+                        <li><a href="#">Atendimento de Terapia Ayurvédica</a></li>
+                        <li><a href="#">Vídeo sobre Terapia Ayurvédica</a></li>
+                        <li><a href="#">Teste - Qual é seu Dosha (biotipo) dentro da Filosofia Ayurvédica?</a></li>
+                        <li><a href="#">Contato</a></li>
+                        <li><a href="#">Formulário de Atendimento</a></li>
+                        <li><a href="#">Dúvidas</a></li>
+                    </ul>
+                </article>
+                <article>
+                    <h2><a href="#">Instrutora de Meditação</a></h2>
+                    <ul>
+                        <li><a href="#">O que é a Instrução em Meditação?</a></li>
+                        <li><a href="#">Para que serve a Instrução em Meditação?</a></li>
+                        <li><a href="#">Como utilizo a Instrução em Meditação?</a></li>
+                        <li><a href="#">Atendimento de Instrução em Meditação</a></li>
+                        <li><a href="#">Vídeo sobre Instrução em Meditação</a></li>
+                        <li><a href="#">Contato</a></li>
+                        <li><a href="#">Formulário de Atendimento</a></li>
+                        <li><a href="#">Dúvidas</a></li>
+                    </ul>
+                </article>
+                <div class="cl"></div>
+            </nav>
+            <div class="cl"></div>
+            
+            <img src="img/img_risco_gde.png" width="100%" height="21">
+            
+            <nav class="col1">
+                <h1 class="size-17"><a href="#">Encomende Seu Mapa</a></h1>
+                <img src="img/img_risco.png" width="100%" height="1">
+                <article>
+                    <h2><a href="#">Mapas Astrológicos</a></h2>
+                    <ul>
+                        <li><a href="#">Mapa Astral</a></li>
+                        <li><a href="#">Mapa de Previsão Anual</a></li>
+                        <li><a href="#">Mapa de Sinatria</a></li>
+                    </ul>
+                </article>
+                <article>
+                    <h2><a href="#">Mapas Numerológicos</a></h2>
+                    <ul>
+                        <li><a href="#">Mapa Numerológico</a></li>                    
+                        <li><a href="#">Mapa de Ano Pessoal e suas tendências</a></li>                    
+                        <li><a href="#">Mapa de Sinastria Numerológica</a></li>                    
+                        <li><a href="#">Mapa Empresarial</a></li>                    
+                    </ul>
+                </article>
+            </nav>
+            <nav class="col1">
+                <h1 class="size-17"><a href="#">Astrologia</a></h1>
+                <img src="img/img_risco.png" width="100%" height="1">
+                <h2><a href="#">Previsão Astrológica Anual</a></h2>
+                <h2><a href="#">Previsão Astrológica Mensal</a></h2>
+                <h2><a href="#">Previsão Astrológica Semanal</a></h2>
+            </nav>
+            <nav class="col1">
+                <article>
+                    <h1 class="size-17"><a href="#">Teste</a></h1>
+                    <img src="img/img_risco.png" width="100%" height="1">
+                    <h2><a href="#">Como transformar sua vida?</a></h2>
+                </article>
+                <article>
+                    <h1 class="size-17"><a href="#">Atendimento<br> On-line</a></h1>
+                    <img src="img/img_risco.png" width="100%" height="1">
+                    <h2><a href="#">Contato</a></h2>
+                    <h2><a href="#">Formulário de Atendimento</a></h2>
+                    <h2><a href="#">Dúvidas</a></h2>
+                </article>
+            </nav>
+            <nav class="col3">
+                <h1 class="size-17"><a href="#">Matérias Autorais</a></h1>
+                <img src="img/img_risco.png" width="90%" height="1">
+    
+                <h1 class="size-17 unico"><a href="#">Dúvidas Frequentes</a></h1>
+                <img src="img/img_risco.png" width="90%" height="1">
+            </nav>
+            <nav class="col3">
+                <h1 class="size-17"><a href="#">Imagens</a></h1>
+                <img src="img/img_risco.png" width="100%" height="1">
+    
+                <h1 class="size-17 unico"><a href="#">&Aacute;udios</a></h1>
+                <img src="img/img_risco.png" width="100%" height="1">
+    
+                <h1 class="size-17 unico"><a href="#">Extras</a></h1>
+                <img src="img/img_risco.png" width="100%" height="1">
+                <h2><a href="#">Textos Afins</a></h2>
+                <h2><a href="#">Biblioteca</a></h2>
+                <h2><a href="#">Orações</a></h2>
+                <h2><a href="#">Meus Parceiros</a></h2>
+                <h2><a href="#">Concepção Geral do Site</a></h2>
+            </nav>
+            <div class="cl"></div>
+    	</div>
+        <div class="copyright">
+            <p><span>Paula Pires &nbsp; | &nbsp; Terapeuta Holística Integrativa &nbsp; &amp; &nbsp; Professional and Self Coaching &nbsp; | &nbsp; <font>E-mail: <a href="mailto:paulapires@paulapires.com.br">paulapires@paulapires.com.br</a></font></span></p>
+            <p>Copyright ® 2014 &nbsp; &bull; &nbsp; Todos os Direitos Reservados &nbsp; &bull; &nbsp; <a href="#">Política de Privacidade</a> &nbsp; &bull; &nbsp; <a href="#">Termos de Uso</a></p>
+        </div>
+    </footer>
+</section>
+
+<!-- Comum -->
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+<script type="text/javascript" src="js/lib/jquery-2.0.2.min.js"></script>
+<script type="text/javascript" src="js/lib/jquery.cookie-2.2.0.js"></script>
+<script type="text/javascript" src="js/lib/jquery.vintage.js"></script>
+<script type="text/javascript" src="js/common.js" charset="utf-8"></script>
+
+</body>
+</html>

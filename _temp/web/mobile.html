@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home page mvc</title>
+    <meta name="Description" content="">
+    <meta name="keywords" content="Paula Pires">
+
+    <meta name="Author" content="Kbytes Webstudio - Contato: heberth20@gmail.com">
+    <meta name="copyright" content="Paula Pires - Todos os direitos reservados">
+    <meta name="robots" content="index,follow">
+    <meta name="revisit-after" content="7 Days">
+    <meta http-equiv="imagetoolbar" content="false">
+    <meta http-equiv="Content-Language" content="pt-br">
+    <meta name="language" content="Portuguese">
+    <meta charset="iso-8859-1">
+	<meta name="viewport" content="width=device-width,user-scalable=no" media="(device-height: 568px)">
+    
+    <!-- Apple Web App -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+	
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/ico">
+    <link rel="apple-touch-icon-precomposed" href="img/appicon57.png">
+    <link rel="apple-touch-icon-precomposed" href="img/appicon57.png" sizes="76x76">
+    <link rel="apple-touch-icon-precomposed" href="img/appicon114.png" sizes="114x114">
+    <link rel="apple-touch-icon-precomposed" href="img/appicon152.png" sizes="152x152">
+
+     <!-- Comum -->
+    <link href="css/reset.css" media="all" rel="stylesheet" type="text/css">
+    <link href="css/mobile.css" media="all" rel="stylesheet" type="text/css">
+    
+    <script type="text/javascript" src="js/lib/modernizr-2.6.2.min.js"></script>
+</head>
+<body>
+<div id="fb-root"></div>
+<div class="msgFnd" onClick="chef.boxOpenClose('close');"></div>
+<div class="msgBox">
+</div>
+
+<section class="wrapper">
+    <header>
+        <div class="logo"><span class="paula">Paula</span> <span class="pires">Pires</span></div>
+        <div class="menu-btn">
+            <div class="menu"><a href="javascript:nav('menuPrincipal')">Menu</a></div>
+            <div class="voltar"><a href="javascript:navVoltar()">Voltar</a></div>
+            <div class="cl"></div>
+        </div>
+        <nav>
+        	<ul class="menuPrincipal itens" style="display:block">
+            	<li><a href="javascript:nav('quem-sou')">Quem Sou</a></li>
+                <li><a href="javascript:nav('tecnicas')">Técnicas</a></li>
+                <li><a href="javascript:nav('consulta-especial')">Consulta Especial</a></li>
+                <li><a href="javascript:nav('encomende-mapa')">Encomende seu Mapa</a></li>
+                <li><a href="javascript:nav('previsao-astrologica')">Previsão Astrológica</a></li>
+                <li><a href="#">Contato</a></li>
+            </ul>
+            <ul class="quem-sou itens">
+            	<li class="tit">Quem Sou</li>
+                <li><a href="#">Perfil</a></li>
+                <li><a href="#">Vídeos de Apresentação</a></li>
+                <li><a href="#">Formação</a></li>
+                <li><a href="#">Depoimentos</a></li>
+                <li><a href="javascript:nav('na-midia')">Na Mídia</a></li>
+            </ul>
+            <ul class="tecnicas itens">
+            	<li class="tit">Técnicas</li>
+                <li class="corpo-tecnicas">
+                    <ul class="tecnicas-menu">
+                        <li class="header">&nbsp;</li>
+                        <li>
+                            <div class="thumb"><img src="img/menu_esq_top.png" class="mask"><img src="img/_tecnica1.jpg" class="mini" alt="técnicas"></div>
+                            <div class="txtLabel"><label><p><span>Terapeuta Floral Alquímica</span></p></label></div>
+                            <div class="over"><img src="img/mobile/linha.png" width="160" class="barra-over"></div>
+                            <div class="cl"></div>
+                        </li>
+                        <li>
+                            <div class="thumb"><img src="img/menu_esq_rep.png" class="mask" alt="técnicas"><img src="img/_tecnica2.jpg" class="mini" alt="técnicas"></div>
+                            <div class="txtLabel"><label><p><span>Professional & Self Coaching</span></p></label></div>
+                            <div class="over"><img src="img/mobile/linha.png" width="160" class="barra-over"></div>
+                            <div class="cl"></div>
+                        </li>
+                        <li>
+                            <div class="thumb"><img src="img/menu_esq_rep.png" class="mask" alt="técnicas"><img src="img/_tecnica3.jpg" class="mini" alt="técnicas"></div>
+                            <div class="txtLabel"><label><p><span>Astróloga</span></p></label></div>
+                            <div class="over"><img src="img/mobile/linha.png" width="160" class="barra-over"></div>
+                            <div class="cl"></div>
+                        </li>
+                        <li>
+                            <div class="thumb"><img src="img/menu_esq_rep.png" class="mask" alt="técnicas"><img src="img/_tecnica4.jpg" class="mini" alt="técnicas"></div>
+                            <div class="txtLabel"><label><p><span>Numeróloga</span></p></label></div>
+                            <div class="over"><img src="img/mobile/linha.png" width="160" class="barra-over"></div>
+                            <div class="cl"></div>
+                        </li>
+                        <li>
+                            <div class="thumb"><img src="img/menu_esq_rep.png" class="mask" alt="técnicas"><img src="img/_tecnica5.jpg" class="mini" alt="técnicas"></div>
+                            <div class="txtLabel"><label><p><span>Fitoterapeuta</span></p></label></div>
+                            <div class="over"><img src="img/mobile/linha.png" width="160" class="barra-over"></div>
+                            <div class="cl"></div>
+                        </li>
+                        <li>
+                            <div class="thumb"><img src="img/menu_esq_rep.png" class="mask" alt="técnicas"><img src="img/_tecnica2.jpg" class="mini" alt="técnicas"></div>
+                            <div class="txtLabel"><label><p><span>Acupunturista</span></p></label></div>
+                            <div class="over"><img src="img/mobile/linha.png" width="160" class="barra-over"></div>
+                            <div class="cl"></div>
+                        </li>
+                        <li>
+                            <div class="thumb"><img src="img/menu_esq_rep.png" class="mask" alt="técnicas"><img src="img/_tecnica7.jpg" class="mini" alt="técnicas"></div>
+                            <div class="txtLabel"><label><p><span>Reeducadora Alimentar</span></p></label></div>
+                            <div class="over"><img src="img/mobile/linha.png" width="160" class="barra-over"></div>
+                            <div class="cl"></div>
+                        </li>
+                        <li>
+                            <div class="thumb"><img src="img/menu_esq_rep.png" class="mask" alt="técnicas"><img src="img/_tecnica2.jpg" class="mini" alt="técnicas"></div>
+                            <div class="txtLabel"><label><p><span>Iridóloga</span></p></label></div>
+                            <div class="over"><img src="img/mobile/linha.png" width="160" class="barra-over"></div>
+                            <div class="cl"></div>
+                        </li>
+                        <li>
+                            <div class="thumb"><img src="img/menu_esq_rep.png" class="mask" alt="técnicas"><img src="img/_tecnica2.jpg" class="mini" alt="técnicas"></div>
+                            <div class="txtLabel"><label><p><span>Consultora de Feng-Shui</span></p></label></div>
+                            <div class="over"><img src="img/mobile/linha.png" width="160" class="barra-over"></div>
+                            <div class="cl"></div>
+                        </li>
+                        <li>
+                            <div class="thumb"><img src="img/menu_esq_rep.png" class="mask" alt="técnicas"><img src="img/_tecnica10.jpg" class="mini" alt="técnicas"></div>
+                            <div class="txtLabel"><label><p><span>Terapeuta Ayurvédica</span></p></label></div>
+                            <div class="over"><img src="img/mobile/linha.png" width="160" class="barra-over"></div>
+                            <div class="cl"></div>
+                        </li>
+                        <li>
+                            <div class="thumb"><img src="img/menu_esq_bot.png" class="mask" alt="técnicas"><img src="img/_tecnica2.jpg" class="mini" alt="técnicas"></div>
+                            <div class="txtLabel"><label><p><span>Instrutora de Meditação</span></p></label></div>
+                            <div class="over"><img src="img/mobile/linha.png" width="160" class="barra-over"></div>
+                            <div class="cl"></div>
+                        </li>
+                        <li class="footer">&nbsp;</li>
+                    </ul>
+            	</li>
+            </ul>
+            <!--
+            <ul class="videos itens">
+            	<li class="tit">Vídeos</li>
+                <li><a href="#">Vídeo de Apresentação</a></li>
+                <li><a href="#">As Técnicas</a></li>
+                <li><a href="#">Temas Diversos:</a></li>
+                <li><a href="#">&bull; Chacras</a></li>
+                <li><a href="#">&bull; Alquimia</a></li>
+            </ul>
+            -->
+            <ul class="na-midia itens">
+                <li class="tit">Na Mídia</li>
+                <li><a href="#">TV</a></li>
+                <li><a href="#">Net</a></li>
+                <li><a href="#">Mídia Impressa</a></li>
+                <li><a href="#">Rádio</a></li>
+            </ul>
+            <ul class="consulta-especial itens">
+                <li class="tit">Consulta Especial</li>
+                <li><a href="#">O que é?</a></li>
+                <li><a href="#">Vídeo Explicativo</a></li>
+                <li><a href="#">Contato</a></li>
+                <li><a href="#">Formulário de Atendimento</a></li>
+                <li><a href="#">Dúvidas</a></li>
+            </ul>
+            <!--
+            <ul class="testes-online itens">
+                <li class="tit">Teste</li>
+                <li><a href="#">Você se alimenta bem?</a></li>
+                <li><a href="#">Os elementos da natureza estão em equilíbrio dentro de você?</a></li>
+                <li><a href="#">Qual é seu Dosha (biotipo) dentro da Filosofia Ayurvédica?</a></li>
+                <li><a href="#">Como transformar sua vida?</a></li>
+            </ul>
+            -->
+            <ul class="encomende-mapa itens">
+                <li class="tit">Encomende seu Mapa</li>
+                <li class="sub">Escolha qual tipo de mapa<br>gostaria de consultar:</li>
+                <li><a href="javascript:nav('mapas-astrologicos')">Mapas Astrológicos</a></li>
+                <li><a href="javascript:nav('mapas-numerologicos')">Mapas Numerológicos</a></li>
+            </ul>
+            <ul class="mapas-astrologicos itens">
+                <li class="tit">Mapas Astrológicos</li>
+                <li class="corpo">
+                	<h1 class="size-19">Mapa Astral</h1>
+                    <p>Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido</p>
+                    
+                    <div class="fl"><a href="#">Ler Mais ></a></div>
+                    <div class="fr">Contato</div>
+                    <div class="cl"></div>
+                </li>
+                <!--
+                <li>
+                	<h1 class="size-19">Mapa de Previsão Anual</h1>
+                    <p>Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido</p>
+                    
+                    <div class="fl"><a href="#">Ler Mais ></a></div>
+                    <div class="fr">Contato</div>
+                    <div class="cl"></div>
+                </li>
+                <li>
+                	<h1 class="size-19">Mapa de Sinastria</h1>
+                    <p>Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido</p>
+                    
+                    <div class="fl"><a href="#">Ler Mais ></a></div>
+                    <div class="fr">Contato</div>
+                    <div class="cl"></div>
+                </li>
+                -->
+            </ul>
+            <ul class="mapas-numerologicos itens">
+                <li class="tit">Mapas Numerológicos</li>
+                <li class="corpo">
+                	<h1 class="size-19">Mapa Numerológico</h1>
+                    <p>Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido</p>
+                    
+                    <div class="fl"><a href="#">Ler Mais ></a></div>
+                    <div class="fr">Contato</div>
+                    <div class="cl"></div>
+                </li>
+            </ul>
+            <ul class="previsao-astrologica itens">
+                <li class="tit">Previsão Astrológica</li>
+                <li class="sub">Escolha qual tipo de previsão<br>você gostaria de consultar:</li>
+                <li><a href="javascript:nav('previsao-astrologica-semanal')">Previsão astrológica Semanal</a></li>
+                <li><a href="javascript:nav('previsao-astrologica-mensal')">Previsão astrológica Mensal</a></li>
+                <li><a href="javascript:nav('previsao-astrologica-anual')">Previsão astrológica Anual</a></li>
+            </ul>
+        </nav>
+    </header>
+  
+    <section class="content">
+       
+        <article class="miolo">
+        	<nav>
+                <h1 class="tit size-25">Bem Vindo</h1>
+                <div class="sub2">
+                	<a href="#">Vídeo de Apresentação</a>
+                </div>
+                <div class="cl"></div>
+                
+                
+                <div class="size"><a href="javascript:sizeMenos()" class="size-menos">-A</a> &nbsp;<a href="javascript:sizeMais()" class="size-mais">+A</a></div>
+                <!--
+                <div class="sub">
+                	<a href="#">Vídeo de Apresentação</a>
+                </div>
+                
+                <div class="cl"></div>
+                
+                <div class="sub2">
+                	<a href="#">Vídeo de Apresentação</a>
+                    <div class="cl"></div>
+                </div>
+                -->
+                
+                <div class="cl"></div>
+            </nav>
+            <div class="texto">
+                Este site foi idealizado para, através de textos, imagens, vídeos, testes e áudios  demonstrar como funciona um trabalho profundo de reequilíbrio interior, para trazer maiores informações sobre um método que inclui diversas técnicas de harmonização e que está embasado na busca da raiz dos desequilíbrios em todas elas.<br><br>
+                Se uma técnica pode ser utilizada de forma independente da outra, todas também podem ser unidas conforme os objetivos e necessidades.<br><br>
+                Que todas as possibilidades aqui colocadas lhe sejam prazerosas e lhe tragam inspiração de forma pura e verdadeira.
+            </div>
+            <div class="foto">
+            	<img src="img/_imagem1.jpg">
+            </div>
+            <!--
+            <div class="video">
+                <object width="555" height="312">
+                <param name="movie" value="http://www.youtube.com/v/Qwpz_6DWVXQ?hl=pt_BR&amp;version=3"></param>
+                <param name="allowFullScreen" value="true"></param>
+                <param name="allowscriptaccess" value="always"></param>
+                <embed src="http://www.youtube.com/v/Qwpz_6DWVXQ?hl=pt_BR&amp;version=3" type="application/x-shockwave-flash" width="555" height="312" allowscriptaccess="always" allowfullscreen="true"></embed>
+                </object>
+            </div>
+           
+            <div class="share">
+            	<div class="share-fb"><div class="fb-share-button" data-href="http://astrologiaalquimica.com.br/_temp/" data-type="button_count"></div></div>
+                <div class="share-tw"><a href="http://astrologiaalquimica.com.br/_temp/" class="twitter-share-button"  data-via="Paula Pires" data-lang="en">Tweet</a></div>
+                <div class="share-go"><div class="g-plus" data-action="share" data-annotation="bubble" data-href="http://astrologiaalquimica.com.br/_temp/"></div></div>
+
+                <div class="cl"></div>
+                
+                <div class="comments-fb"><div class="fb-comments" data-href="http://astrologiaalquimica.com.br/_temp/" data-width="555" data-numposts="1" data-colorscheme="light"></div></div>
+
+                <div class="comments-go"><div class="g-comments" data-href="http://astrologiaalquimica.com.br/_temp/" data-width="555" data-first_party_property="BLOGGER" data-view_type="FILTERED_POSTMOD"></div></div>
+-->
+            </div>
+        </article>
+       
+    </section>
+    
+    <footer>
+        <div class="aba">
+            <img src="img/mobile/aba_esq.png" class="esq">
+            <img src="img/mobile/aba_dir.png" class="dir">
+            <div class="cl"></div>
+        </div>
+        <div class="content">
+            <form name="form_busca" method="post" action="#">
+            <div class="busca">
+                <input type="text" name="busca" id="busca" value="O que voc&ecirc; procura?" class="fld-busca"><input type="submit" value="" class="btn-busca">
+                <div class="cl"></div>
+            </div>
+            </form>
+            
+            <div class="rede-focial">
+                <div class="rede-yt">youtube</div>
+                <div class="rede-fb">facebook</div>
+                <div class="rede-tw">twitter</div>
+                <div class="rede-it">intagram</div>
+                <div class="rede-go">google plus</div>
+            </div>
+            <div class="cl"></div>
+        </div>
+    </footer>
+</section>
+<div class="aba2">&nbsp;</div>
+<div class="rodape"><a href="index.html">Acessar versão Web</a></div>
+
+<!-- Comum -->
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+<script type="text/javascript" src="js/lib/jquery-2.0.2.min.js"></script>
+<script type="text/javascript" src="js/lib/jquery.vintage.js"></script>
+<script type="text/javascript" src="js/commonMobile.js" charset="utf-8"></script>
+
+</body>
+</html>

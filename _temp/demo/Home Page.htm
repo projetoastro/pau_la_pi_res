@@ -1,0 +1,833 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0034)http://floraisastrologicos.com.br/ -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="content-type" content="video/mp4">
+<title>Home Page</title>
+<link href="./Home Page_files/estilo.css" rel="stylesheet" type="text/css">
+<link href="./Home Page_files/menu.css" rel="stylesheet" type="text/css">
+<link href="./Home Page_files/jquery-ui-1.9.2.custom.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="./Home Page_files/cufon-yui.js"></script>
+<style type="text/css">
+cufon {
+	text-indent: 0!important;
+}
+@media screen, projection {
+cufon {
+	display: inline!important;
+	display: inline-block!important;
+	position: relative!important;
+	vertical-align: middle!important;
+	font-size: 1px!important;
+	line-height: 1px!important;
+}
+cufon cufontext {
+	display: -moz-inline-box!important;
+	display: inline-block!important;
+	width: 0!important;
+	height: 0!important;
+	overflow: hidden!important;
+	text-indent: -10000in!important;
+}
+cufon canvas {
+	position: relative!important;
+}
+}
+@media print {
+cufon {
+	padding: 0!important;
+}
+cufon canvas {
+	display: none!important;
+}
+}
+</style>
+<script type="text/javascript" src="./Home Page_files/Trajan_Pro_700.font.js"></script>
+<script type="text/javascript" src="./Home Page_files/blogger.js"></script>
+<script type="text/javascript" src="./Home Page_files/12345.json">
+ </script>
+<script src="./Home Page_files/jquery-1.8.3.js" type="text/javascript"></script>
+<script src="./Home Page_files/myScripts.js" type="text/javascript"></script>
+<script src="./Home Page_files/jquery-ui-1.9.2.custom.js" type="text/javascript"></script>
+<script src="./Home Page_files/aumentaFonte.js" type="text/javascript"></script>
+<script src="./Home Page_files/jquery.form.js" type="text/javascript"></script>
+<!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<!--[if lt IE 8]><script src="http://ie7-js.googlecode.com/svn/version/2.0(beta3)/IE8.js" type="text/javascript"></script><![endif]-->
+
+<!--
+<script type="text/javascript">// <![CDATA[
+ Cufon.replace('.rodape-baixo-col-cont H1');
+// ]]></script>
+
+-->
+
+<script type="text/javascript">
+    function IEHoverPseudo() {
+
+        var navItems = document.getElementById("navegacao-menu-esq").getElementsByTagName("li");
+
+        for (var i = 0; i < navItems.length; i++) {
+            if (navItems[i].className == "menuparent") {
+                navItems[i].onmouseover = function () { this.className += " over"; }
+                navItems[i].onmouseout = function () { this.className = "menuparent"; }
+            }
+        }
+
+    }
+    window.onload = IEHoverPseudo;
+</script>
+<script type="text/javascript">
+    function IEHoverPseudo() {
+
+        var navItems = document.getElementById("navegacao-menu-dir").getElementsByTagName("li");
+
+        for (var i = 0; i < navItems.length; i++) {
+            if (navItems[i].className == "menuparent") {
+                navItems[i].onmouseover = function () { this.className += " over"; }
+                navItems[i].onmouseout = function () { this.className = "menuparent"; }
+            }
+        }
+
+    }
+    window.onload = IEHoverPseudo;
+</script>
+<script type="text/javascript">
+    function IEHoverPseudo() {
+
+        var navItems = document.getElementById("navegacao-menu-topo").getElementsByTagName("li");
+
+        for (var i = 0; i < navItems.length; i++) {
+            if (navItems[i].className == "menuparent") {
+                navItems[i].onmouseover = function () { this.className += " over"; }
+                navItems[i].onmouseout = function () { this.className = "menuparent"; }
+            }
+        }
+
+    }
+    window.onload = IEHoverPseudo;
+</script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var contador = 0;
+        var cont1 = 'url(../../Content/img/backgroung.jpg)';
+        var cont2 = 'url(../../Content/img/background_madeira.jpg)';
+        var cont3 = 'url(../../Content/img/background_tronco.jpg)';
+        setInterval(function () {
+
+            if (contador == 0) {
+                contador = 1;
+                trocaFundo(cont2);
+            } else if (contador == 1) {
+                contador = 2;
+                trocaFundo(cont1);
+            } else {
+                contador = 0;
+                trocaFundo(cont3);
+            }
+
+        }, 60000);
+
+
+        function trocaFundo(cont) {
+
+
+            $('#bg_total').fadeOut(function () {
+
+                $('#bg_total').css({ 'background-image': cont });
+
+
+
+            });
+
+            $('#bg_total').fadeIn();
+
+        }
+
+
+    });
+</script>
+<script type="text/javascript">
+
+
+    var audio;
+    var playlist;
+    var tracks;
+    var current;
+
+    init();
+    function init() {
+        current = 0;
+        audio = $('#audio');
+        playlist = $('#playlist');
+        tracks = playlist.find('li a');
+        len = tracks.length; //  - 1;
+        //audio[0].volume = .10;
+        audio[0].play();
+        playlist.find('a').click(function (e) {
+            e.preventDefault();
+            link = $(this);
+            current = link.parent().index();
+            run(link, audio[0]);
+        });
+        audio[0].addEventListener('ended', function (e) {
+            current++;
+            if (current == len) {
+                current = 0;
+                link = playlist.find('a')[0];
+            } else {
+                link = playlist.find('a')[current];
+            }
+            run($(link), audio[0]);
+        });
+    }
+    function run(link, player) {
+        player.src = link.attr('href');
+        par = link.parent();
+        par.addClass('active').siblings().removeClass('active');
+        audio[0].load();
+        audio[0].play();
+    }
+</script>
+</head>
+<body>
+<audio id="audio" tabindex="0" controls="" preload="preload">
+  <source src="trilha.mp3">
+</audio>
+<div id="bg_total" style="display: block; background-image: url(http://floraisastrologicos.com.br/Content/img/background_madeira.jpg);"></div>
+<div id="geral">
+  <div id="banner"> <a href="./Home Page_files/Home Page.htm" title="Home"><img src="./Home Page_files/logo.png" border="0" alt="home"></a></div>
+  <div id="menu-topo">
+    <div class="menu-topo">
+      <nav class="clearfix">
+        <ul id="navegacao-menu-topo">
+          <li class="fromLeft titulo-menu" id=""> <a id="menu_topo01" href="http://floraisastrologicos.com.br/Paula-Pires/1/teste"> <span style="display: none;">Quem sou</span></a>
+            <ul class="menu-topo-drop">
+              <li><a href="http://floraisastrologicos.com.br/Paula-Pires/133/Perfil"> - Perfil</a></li>
+              <li><a href="http://floraisastrologicos.com.br/Paula-Pires/134/V%C3%ADdeos-de-Apresenta%C3%A7%C3%A3o"> - Vídeos de Apresentação</a></li>
+              <li><a href="http://floraisastrologicos.com.br/Paula-Pires/135/Forma%C3%A7%C3%A3o"> - Formação</a></li>
+              <li><a href="http://floraisastrologicos.com.br/Paula-Pires/136/Depoimentos"> - Depoimentos</a></li>
+            </ul>
+          </li>
+          <li class="fromLeft titulo-menu" id=""> <a id="menu_topo02" href="http://floraisastrologicos.com.br/#"> <span style="display: none;">Videos</span></a>
+            <ul class="menu-topo-drop">
+              <li><a href="http://floraisastrologicos.com.br/Paula-Pires/137/V%C3%ADdeo-de-Apresenta%C3%A7%C3%A3o"> - Vídeo de Apresentação</a></li>
+              <li><a href="http://floraisastrologicos.com.br/Paula-Pires/138/As-T%C3%A9cnicas"> - As Técnicas</a></li>
+              <li><a href="http://floraisastrologicos.com.br/Paula-Pires/139/Temas-Diversos"> - Temas Diversos</a></li>
+              <li style="list-style:none;"><a href="http://floraisastrologicos.com.br/Paula-Pires/140/Chacras"> • Chacras</a></li>
+              <li style="list-style:none;"><a href="http://floraisastrologicos.com.br/Paula-Pires/141/Alquimia"> • Alquimia</a></li>
+            </ul>
+          </li>
+          <li class="fromLeft titulo-menu" id=""> <a id="menu_topo03" href="http://floraisastrologicos.com.br/#"> <span style="display: none;">Na Mídia</span></a>
+            <ul class="menu-topo-drop">
+              <li><a href="http://floraisastrologicos.com.br/Paula-Pires/142/TV"> - TV</a></li>
+              <li><a href="http://floraisastrologicos.com.br/Paula-Pires/143/Net"> - Net</a></li>
+              <li><a href="http://floraisastrologicos.com.br/Paula-Pires/144/M%C3%ADdia-Impressa"> - Mídia Impressa</a></li>
+              <li><a href="http://floraisastrologicos.com.br/Paula-Pires/145/R%C3%A1dio"> - Rádio</a></li>
+            </ul>
+          </li>
+          <li class="fromLeft titulo-menu" id="quatro"> <a id="menu_topo04" href="http://floraisastrologicos.com.br/#"> <span>Consulta Especial</span></a>
+            <ul class="menu-topo-drop">
+              <li><a href="http://floraisastrologicos.com.br/Paula-Pires/146/O-que-%C3%A9?"> - O que é?</a></li>
+              <li><a href="http://floraisastrologicos.com.br/Paula-Pires/148/Contato"> - Contato</a></li>
+              <li><a href="http://floraisastrologicos.com.br/Paula-Pires/149/Formul%C3%A1rio-de-Atendimento"> - Formulário de Atendimento</a></li>
+              <li><a href="http://floraisastrologicos.com.br/Paula-Pires/150/D%C3%BAvidas"> - Dúvidas</a></li>
+            </ul>
+          </li>
+          <li class="fromLeft titulo-menu" id="cinco"> <a id="menu_topo05" href="http://floraisastrologicos.com.br/#"> <span style="display: none;">Testes On-line</span></a>
+            <ul class="menu-topo-drop">
+              <li><a href="http://floraisastrologicos.com.br/Paula-Pires/151/Voc%C3%AA-se-alimenta-bem?"> - Você se alimenta bem?</a></li>
+              <li><a href="http://floraisastrologicos.com.br/Paula-Pires/152/Os-elementos-da-natureza-est%C3%A3o-em-equil%C3%ADbrio-dentro-de-voc%C3%AA?"> - Os elementos da natureza estão em equilíbrio dentro de você?</a></li>
+              <li><a href="http://floraisastrologicos.com.br/Paula-Pires/153/Qual-%C3%A9-seu-Dosha-(biotipo)-dentro-da-Filosofia-Ayurv%C3%A9dica?"> - Qual é seu Dosha (biotipo) dentro da Filosofia Ayurvédica?</a></li>
+              <li><a href="http://floraisastrologicos.com.br/Paula-Pires/154/Como-transformar-sua-vida?"> - Como transformar sua vida?</a></li>
+            </ul>
+          </li>
+          <li class="fromLeft titulo-menu last" id=""> <a id="menu_topo06" href="http://floraisastrologicos.com.br/Paula-Pires/6/Contato"> <span style="display: none;">Contato</span></a>
+            <ul class="menu-topo-drop">
+              <li><a href="http://floraisastrologicos.com.br/Paula-Pires/155/Envio-de-Mensagem"> - Envio de Mensagem</a></li>
+              <li><a href="http://floraisastrologicos.com.br/Paula-Pires/156/Indique%20este%20Site"> - Indique este Site</a></li>
+            </ul>
+          </li>
+          <ul class="menu-topo-drop">
+          </ul>
+          <ul class="menu-topo-drop">
+          </ul>
+          <ul class="menu-topo-drop">
+          </ul>
+          <ul class="menu-topo-drop">
+          </ul>
+          <ul class="menu-topo-drop">
+          </ul>
+          <ul class="menu-topo-drop">
+          </ul>
+          <ul class="menu-topo-drop">
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/140/Chacras"> - Chacras</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/141/Alquimia"> - Alquimia</a></li>
+          </ul>
+          <ul class="menu-topo-drop">
+          </ul>
+          <ul class="menu-topo-drop">
+          </ul>
+          <ul class="menu-topo-drop">
+          </ul>
+          <ul class="menu-topo-drop">
+          </ul>
+          <ul class="menu-topo-drop">
+          </ul>
+          <ul class="menu-topo-drop">
+          </ul>
+          <ul class="menu-topo-drop">
+          </ul>
+          <ul class="menu-topo-drop">
+          </ul>
+          <ul class="menu-topo-drop">
+          </ul>
+          <ul class="menu-topo-drop">
+          </ul>
+          <ul class="menu-topo-drop">
+          </ul>
+          <ul class="menu-topo-drop">
+          </ul>
+          <ul class="menu-topo-drop">
+          </ul>
+          <ul class="menu-topo-drop">
+          </ul>
+          <ul class="menu-topo-drop">
+          </ul>
+          <ul class="menu-topo-drop">
+          </ul>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div class="background-geral"> 
+    <script type="text/javascript">
+
+    $(document).ready(function () {
+        aumenta_fonte();
+    });
+</script>
+    <div class="background-geral-meio">
+      <div id="col-esq">
+        <div class="col-esq">
+          <div class="conteudo-col-esq">
+            <h1>Técnicas</h1>
+            <ul id="navegacao-menu-esq">
+              <li class="menuparent circulo-menu-topo"> <a href="http://floraisastrologicos.com.br/#"> <img src="./Home Page_files/System.Web.HttpPostedFileWrapper" alt="" style="display: block;float: left;position: relative;z-index: -9;"> <span>Terapeuta Floral Alquímica</span></a>
+                <ul class="menu-esq-drop">
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/34/O-que-%C3%A9-Terapia-Floral-Alqu%C3%ADmica?">- O que é Terapia Floral Alquímica?</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/35/Para-que-serve-a-Terapia-Floral-Alqu%C3%ADmica?">- Para que serve a Terapia Floral Alquímica?</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/36/Como-utilizo-a-Terapia-Floral-Alqu%C3%ADmica?">- Como utilizo a Terapia Floral Alquímica?</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/37/Consulta-de-Terapia-Floral-Alqu%C3%ADmica">- Consulta de Terapia Floral Alquímica</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/38/V%C3%ADdeo-de-Terapia-Floral-Alqu%C3%ADmica">- Vídeo de Terapia Floral Alquímica</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/39/Contato">- Contato</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/40/Formul%C3%A1rio-de-Atendimento">- Formulário de Atendimento</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/41/D%C3%BAvidas">- Dúvidas</a></li>
+                </ul>
+              </li>
+              <li class="menuparent circulo-menu-center"> <a href="http://floraisastrologicos.com.br/#"> <img src="./Home Page_files/saved_resource" alt="" style="display: block;float: left;position: relative;z-index: -9;"> <span>Professional &amp; Self Coaching</span></a>
+                <ul class="menu-esq-drop">
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/42/O-que-%C3%A9-Coaching?">- O que é Coaching?</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/43/Para-que-serve-o-Coaching?">- Para que serve o Coaching?</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/44/Como-utilizo-o-Coaching?">- Como utilizo o Coaching?</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/45/Atendimento-de-Coaching">- Atendimento de Coaching</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/46/V%C3%ADdeo-explicativo-sobre-Coaching">- Vídeo explicativo sobre Coaching</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/47/Contato">- Contato</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/48/Formul%C3%A1rio-de-Atendimento">- Formulário de Atendimento</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/49/D%C3%BAvidas">- Dúvidas</a></li>
+                </ul>
+              </li>
+              <li class="menuparent circulo-menu-center"> <a href="http://floraisastrologicos.com.br/Paula-Pires/10/Previsoes"> <img src="./Home Page_files/saved_resource" alt="" style="display: block;float: left;position: relative;z-index: -9;"> <span>Previsões</span></a>
+                <ul class="menu-esq-drop">
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/20/Previs%C3%A3o-Astrol%C3%B3gica-Semanal">- Previsão Astrológica Semanal</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/21/Previs%C3%A3o-Astrol%C3%B3gica-Mensal">- Previsão Astrológica Mensal</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/22/Previs%C3%A3o-Astrol%C3%B3gica-Anual">- Previsão Astrológica Anual</a></li>
+                </ul>
+              </li>
+              <li class="menuparent circulo-menu-center"> <a href="http://floraisastrologicos.com.br/Paula-Pires/50/Astr%C3%B3loga"> <img src="./Home Page_files/saved_resource" alt="" style="display: block;float: left;position: relative;z-index: -9;"> <span>Astróloga</span></a>
+                <ul class="menu-esq-drop">
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/52/O-que-%C3%A9-Astrologia?">- O que é Astrologia?</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/53/Para-que-serve-a-Astrologia?">- Para que serve a Astrologia?</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/54/Como-utilizo-a-Astrologia?">- Como utilizo a Astrologia?</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/55/Fazendo-seu-Mapa-Astrol%C3%B3gico">- Fazendo seu Mapa Astrológico</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/56/V%C3%ADdeo-explicativo-sobre-Astrologia">- Vídeo explicativo sobre Astrologia</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/57/Contato">- Contato</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/58/Formul%C3%A1rio-de-Atendimento">- Formulário de Atendimento</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/59/D%C3%BAvidas">- Dúvidas</a></li>
+                </ul>
+              </li>
+              <li class="menuparent circulo-menu-center"> <a href="http://floraisastrologicos.com.br/Paula-Pires/51/Numer%C3%B3loga"> <img src="./Home Page_files/saved_resource" alt="" style="display: block;float: left;position: relative;z-index: -9;"> <span>Numeróloga</span></a>
+                <ul class="menu-esq-drop">
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/60/O-que-%C3%A9-Numerologia?">- O que é Numerologia?</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/61/Para-que-serve-a-Numerologia?">- Para que serve a Numerologia?</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/62/Como-utilizo-a-Numerologia?">- Como utilizo a Numerologia?</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/63/Fazendo-seu-Mapa-Numerol%C3%B3gico">- Fazendo seu Mapa Numerológico</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/64/V%C3%ADdeo-explicativo-de-Numerologia">- Vídeo explicativo de Numerologia</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/65/Contato">- Contato</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/66/Formul%C3%A1rio-de-Atendimento">- Formulário de Atendimento</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/67/D%C3%BAvidas">- Dúvidas</a></li>
+                </ul>
+              </li>
+              <li class="menuparent circulo-menu-center"> <a href="http://floraisastrologicos.com.br/Paula-Pires/68/Fitoterapeuta"> <img src="./Home Page_files/saved_resource" alt="" style="display: block;float: left;position: relative;z-index: -9;"> <span>Fitoterapeuta</span></a>
+                <ul class="menu-esq-drop">
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/72/%20O-que-%C3%A9-Fitoterapia?">-  O que é Fitoterapia?</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/73/Para-que-serve-a-Fitoterapia?">- Para que serve a Fitoterapia?</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/74/Como-utilizo-a-Fitoterapia?">- Como utilizo a Fitoterapia?</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/75/Consulta-de-Fitoterapia">- Consulta de Fitoterapia</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/76/V%C3%ADdeo-explicativo-sobre-Fitoterapia">- Vídeo explicativo sobre Fitoterapia</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/77/Teste-Os-elementos-da-natureza-est%C3%A3o-em-equil%C3%ADbrio-dentro-de-voc%C3%AA?">- Teste - Os elementos da natureza estão em   equilíbrio dentro de você?</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/78/Contato">- Contato</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/79/Formul%C3%A1rio-de-Atendimento">- Formulário de Atendimento</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/80/D%C3%BAvidas">- Dúvidas</a></li>
+                </ul>
+              </li>
+              <li class="menuparent circulo-menu-center"> <a href="http://floraisastrologicos.com.br/Paula-Pires/69/Acupunturista"> <img src="./Home Page_files/saved_resource" alt="" style="display: block;float: left;position: relative;z-index: -9;"> <span>Acupunturista</span></a>
+                <ul class="menu-esq-drop">
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/81/O-que-%C3%A9-Acupuntura?">- O que é Acupuntura?</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/82/Para-que-serve-a-Acupuntura?">- Para que serve a Acupuntura?</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/83/Como-utilizo-a-Acupuntura?">- Como utilizo a Acupuntura?</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/84/Atendimento-de-Acupuntura">- Atendimento de Acupuntura</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/85/V%C3%ADdeo-explicativo-sobre-Acupuntura">- Vídeo explicativo sobre Acupuntura</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/86/Contato">- Contato</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/87/Formul%C3%A1rio-de-Atendimento">- Formulário de Atendimento</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/88/D%C3%BAvidas">- Dúvidas</a></li>
+                </ul>
+              </li>
+              <li class="menuparent circulo-menu-center"> <a href="http://floraisastrologicos.com.br/Paula-Pires/70/Reeducadora-Alimentar"> <img src="./Home Page_files/saved_resource" alt="" style="display: block;float: left;position: relative;z-index: -9;"> <span>Reeducadora Alimentar</span></a>
+                <ul class="menu-esq-drop">
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/89/O-que-%C3%A9-Reeduca%C3%A7%C3%A3o-Alimentar?">- O que é Reeducação Alimentar?</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/90/Para-que-serve-a-Reeduca%C3%A7%C3%A3o-Alimentar?">- Para que serve a Reeducação Alimentar?</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/91/Como-utilizo-a-Reeduca%C3%A7%C3%A3o-Alimentar?">- Como utilizo a Reeducação Alimentar?</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/92/Atendimento-de-Reeduca%C3%A7%C3%A3o-Alimentar">- Atendimento de Reeducação Alimentar</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/93/V%C3%ADdeo-explicativo-sobre-Reeduca%C3%A7%C3%A3o-Alimentar">- Vídeo explicativo sobre Reeducação Alimentar</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/94/Teste%20-%20Voc%C3%AA-se-Alimenta-Bem?">- Teste - Você se Alimenta Bem?</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/95/Contato">- Contato</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/96/Formul%C3%A1rio%20de%20Atendimento">- Formulário de Atendimento</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/97/D%C3%BAvidas">- Dúvidas</a></li>
+                </ul>
+              </li>
+              <li class="menuparent circulo-menu-center"> <a href="http://floraisastrologicos.com.br/Paula-Pires/71"> <img src="./Home Page_files/saved_resource" alt="" style="display: block;float: left;position: relative;z-index: -9;"> <span>Iridóloga</span></a>
+                <ul class="menu-esq-drop">
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/98/O-que-%C3%A9-Iridologia?">- O que é Iridologia?</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/99/Para-que-serve-a-Iridologia?">- Para que serve a Iridologia?</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/100/Como-utilizo-a-Iridologia?">- Como utilizo a Iridologia?</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/101/Atendimento-de-Iridologia">- Atendimento de Iridologia</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/102/V%C3%ADdeo%20explicativo-sobre-Iridologia">- Vídeo explicativo sobre Iridologia</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/103/Contato">- Contato</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/104/Formul%C3%A1rio-de-Atendimento">- Formulário de Atendimento</a></li>
+                </ul>
+              </li>
+              <li class="menuparent circulo-menu-center"> <a href="http://floraisastrologicos.com.br/Paula-Pires/105/Consultora-de-Feng-Shui"> <img src="./Home Page_files/saved_resource" alt="" style="display: block;float: left;position: relative;z-index: -9;"> <span>Consultora de Feng Shui</span></a>
+                <ul class="menu-esq-drop">
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/108/O-que-%C3%A9-Feng-Shui?">- O que é Feng Shui?</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/109/Para-que-serve-o-Feng-Shui?">- Para que serve o Feng Shui?</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/110/Como-utilizo-o-Feng-Shui?">- Como utilizo o Feng Shui?</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/111/Consultoria-de-Feng-Shui">- Consultoria de Feng Shui</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/112/V%C3%ADdeo-sobre-Feng-Shui">- Vídeo sobre Feng Shui</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/113/Contato">- Contato</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/114/Formul%C3%A1rio-de-Atendimento">- Formulário de Atendimento</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/115/D%C3%BAvidas">- Dúvidas</a></li>
+                </ul>
+              </li>
+              <li class="menuparent circulo-menu-center"> <a href="http://floraisastrologicos.com.br/Paula-Pires/106/Terapeuta-Ayurv%C3%A9dica"> <img src="./Home Page_files/saved_resource" alt="" style="display: block;float: left;position: relative;z-index: -9;"> <span>Terapeuta Ayurvédica</span></a>
+                <ul class="menu-esq-drop">
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/116/O-que-%C3%A9-Terapia-Ayurv%C3%A9dica?">- O que é Terapia Ayurvédica?</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/117/Para-que-serve-a-Terapia-Ayurv%C3%A9dica?">- Para que serve a Terapia Ayurvédica?</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/118/Como-utilizo-a-Terapia-Ayurv%C3%A9dica?">- Como utilizo a Terapia Ayurvédica?</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/119/Atendimento-de-Terapia-Ayurv%C3%A9dica">- Atendimento de Terapia Ayurvédica</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/120/V%C3%ADdeo-sobre-Terapia-Ayurv%C3%A9dica">- Vídeo sobre Terapia Ayurvédica</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/121/Teste-Qual-%C3%A9-seu-Dosha-(biotipo)-dentro-da-Filosofia-Ayurv%C3%A9dica?">- Teste - Qual é seu Dosha (biotipo) dentro da Filosofia Ayurvédica?</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/122/Contato">- Contato</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/123/Formul%C3%A1rio-de-Atendimento">- Formulário de Atendimento</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/124/D%C3%BAvidas">- Dúvidas</a></li>
+                </ul>
+              </li>
+              <li class="menuparent circulo-menu-botton"> <a href="http://floraisastrologicos.com.br/Paula-Pires/107/Instrutora-de-Medita%C3%A7%C3%A3o"> <img src="./Home Page_files/saved_resource" alt="" style="display: block;float: left;position: relative;z-index: -9;"> <span>Instrutora de Meditação</span></a>
+                <ul class="menu-esq-drop">
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/125/O-que-%C3%A9-a-Instru%C3%A7%C3%A3o-em-Medita%C3%A7%C3%A3o?">- O que é a Instrução em Meditação?</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/126/Para-que-serve-a-Instru%C3%A7%C3%A3o-em-Medita%C3%A7%C3%A3o?">- Para que serve a Instrução em Meditação?</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/127/Como-utilizo-a-Instru%C3%A7%C3%A3o-em-Medita%C3%A7%C3%A3o?">- Como utilizo a Instrução em Meditação?</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/128/Atendimento%20de%20Instru%C3%A7%C3%A3o-em-Medita%C3%A7%C3%A3o">- Atendimento de Instrução em Meditação</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/129/V%C3%ADdeo-sobre-Instru%C3%A7%C3%A3o-em-Medita%C3%A7%C3%A3o">- Vídeo sobre Instrução em Meditação</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/130/Contato">- Contato</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/131/Formul%C3%A1rio-de-Atendimento">- Formulário de Atendimento</a></li>
+                  <li><a href="http://floraisastrologicos.com.br/Paula-Pires/132/D%C3%BAvidas">- Dúvidas</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-esq-bottom"></div>
+        <div class="area-col-bottom-esq"></div>
+      </div>
+      <div id="centro"> </div>
+      <div id="col-dir">
+        <div class="col-dir">
+          <div class="redes-sociais-links"> 
+            <script type="text/javascript" src="./Home Page_files/blogger.js"></script> 
+            <script type="text/javascript" src="./Home Page_files/user_timeline.json"></script> 
+          </div>
+          <br style="clear:both;">
+          <div class="on-off-music-col-esq" style="margin-top:0px;"> <img src="./Home Page_files/music-note-col-esq.jpg" alt="">
+            <div class="on-off-music-buttons-col-esq"> <a href="http://floraisastrologicos.com.br/#" onclick="document.getElementById(&#39;audio&#39;).play()">on</a> / <a href="http://floraisastrologicos.com.br/#" onclick="document.getElementById(&#39;audio&#39;).pause()">off</a> </div>
+          </div>
+          <form action="http://floraisastrologicos.com.br/Busca/Busca" enctype="multipart/form-data" id="FormBanner" method="post">
+            <div class="buscahome-busca">
+              <input type="text" name="BuscaSite" value="O que você procura?" class="campodebusca" onblur="if(this.value==&#39;&#39;)this.value=&#39;O que você procura?&#39;" onfocus="if(this.value==&#39;O que você procura?&#39;)this.value=&#39;&#39;">
+              <input type="submit" value="" class="bt-busca" style="clear:both">
+            </div>
+          </form>
+          <style>
+.gambi:hover{margin-top: -56px !important;}
+
+</style>
+          <div class="redes-sociais-links">
+            <ul>
+              <li class="facebook" style="position:relative; z-index:999;"> <a href="https://pt-br.facebook.com/paulapiresastro" title="Facebook" target="_blank"><img src="./Home Page_files/rede-facebook.jpg" alt=""></a> </li>
+              <li class="twitter" style="margin-left: -7px;"> <a href="https://twitter.com/paulapiresastro" title="Twitter" target="_blank"> <img src="./Home Page_files/rede-twitter.jpg" alt=""></a> </li>
+              <li class="youtube" style="width: 56px;"> <a href="http://instagram.com/paulapiresastro" title="Youtube" target="_blank"> <img src="./Home Page_files/rede-youtube.jpg" class="gambi" alt=""></a> </li>
+              <li class="youtube" style="width: 55px;margin-top: -1px;"> <a href="http://instagram.com/paulapiresastro" title="Instagram" target="_blank"><img src="./Home Page_files/instagram_paula_pires.jpg" alt=""></a> </li>
+            </ul>
+          </div>
+          <br style="clear:both;">
+          <div class="links-col-dir">
+            <h1> Encomende Seu Mapa </h1>
+            <ul id="navegacao-menu-dir-link-pequeno">
+              <li> <a href="http://floraisastrologicos.com.br/Paula-Pires/18/Mapas-Astrol%C3%B3gicos"> <span class="menu-get">Mapas Astrológicos</span></a>
+                <ul class="menu-dir-drop">
+                  <li><a style="background:none;" href="http://floraisastrologicos.com.br/Paula-Pires/28/Mapa-de-Previsao-Anual"> - Mapa de Previsão Anual</a></li>
+                  <li><a style="background:none;" href="http://floraisastrologicos.com.br/Paula-Pires/29/Mapa-de-Sinatria"> - Mapa de Sinatria</a></li>
+                  <li><a style="background:none;" href="http://floraisastrologicos.com.br/Paula-Pires/157/Mapa-Astral"> - Mapa Astral</a></li>
+                </ul>
+              </li>
+            </ul>
+            <ul id="navegacao-menu-dir-link-pequeno">
+              <li> <a href="http://floraisastrologicos.com.br/Paula-Pires/19/Mapas-Numerol%C3%B3gicos"> <span class="menu-get">Mapas Numerológicos</span></a>
+                <ul class="menu-dir-drop">
+                  <li><a style="background:none;" href="http://floraisastrologicos.com.br/Paula-Pires/158/Mapa-Numerologico"> - Mapa Numerológico</a></li>
+                  <li><a style="background:none;" href="http://floraisastrologicos.com.br/Paula-Pires/159/Mapa-de-Ano-Pessoal-e-suas-tendencias"> - Mapa de Ano Pessoal e suas tendências</a></li>
+                  <li><a style="background:none;" href="http://floraisastrologicos.com.br/Paula-Pires/160/Mapa-de-Sinastria-Numerologica"> - Mapa de Sinastria Numerológica</a></li>
+                  <li><a style="background:none;" href="http://floraisastrologicos.com.br/Paula-Pires/161/Mapa-Empresarial"> - Mapa Empresarial</a></li>
+                </ul>
+              </li>
+            </ul>
+            <h1> Teste </h1>
+            <ul id="navegacao-menu-dir-link-pequeno">
+              <li><a style="" href="http://floraisastrologicos.com.br/Paula-Pires/23/Como-transformar-sua-vida?"> <span>Como transformar sua vida?</span></a> </li>
+            </ul>
+            <h1> Atendimento On-line </h1>
+            <ul id="navegacao-menu-dir-link-pequeno">
+              <li><a style="" href="http://floraisastrologicos.com.br/Paula-Pires/24/Contato"> <span>Contato</span></a> </li>
+            </ul>
+            <ul id="navegacao-menu-dir-link-pequeno">
+              <li><a style="" href="http://floraisastrologicos.com.br/Paula-Pires/25/Formul%C3%A1rio-de-Atendimento"> <span>Formulário de Atendimento</span></a> </li>
+            </ul>
+            <ul id="navegacao-menu-dir-link-pequeno">
+              <li><a style="" href="http://floraisastrologicos.com.br/Paula-Pires/26/D%C3%BAvidas"> <span>Dúvidas</span></a> </li>
+            </ul>
+            <h1> Mapa Astral </h1>
+            <ul class="links-col-dir_grandes" style="width:auto;margin-top:-2px;">
+              <li>
+                <h2><a href="http://floraisastrologicos.com.br/Paula-Pires/13/Materias-Autorais" id="link-extras-noson"> Matérias Autorais</a></h2>
+              </li>
+            </ul>
+            <ul class="links-col-dir_grandes" style="width:auto;margin-top:-2px;">
+              <li>
+                <h2><a href="http://floraisastrologicos.com.br/Paula-Pires/14/D%C3%BAvidas-Frequentes" id="link-extras-noson"> Dúvidas Frequentes</a></h2>
+              </li>
+            </ul>
+            <ul class="links-col-dir_grandes" style="width:auto;margin-top:-2px;">
+              <li>
+                <h2><a href="http://floraisastrologicos.com.br/Paula-Pires/15/Imagens" id="link-extras-noson"> Imagens</a></h2>
+              </li>
+            </ul>
+            <ul class="links-col-dir_grandes" style="width:auto;margin-top:-2px;">
+              <li>
+                <h2><a href="http://floraisastrologicos.com.br/Paula-Pires/16/Audios" id="link-extras-noson"> Áudios</a></h2>
+              </li>
+            </ul>
+            <ul id="navegacao-menu-dir" style="margin-top: 6px;">
+              <li><a href="http://floraisastrologicos.com.br/Paula-Pires/17/Extras">Extras</a>
+                <ul class="menu-dir-drop">
+                  <li style="padding-right: 10px; padding-left: 10px;"><a href="http://floraisastrologicos.com.br/Paula-Pires/30/Textos-Afins">- 
+                    Textos Afins</a></li>
+                  <li style="padding-right: 10px; padding-left: 10px;"><a href="http://floraisastrologicos.com.br/Paula-Pires/31/Biblioteca">- 
+                    Biblioteca</a></li>
+                  <li style="padding-right: 10px; padding-left: 10px;"><a href="http://floraisastrologicos.com.br/Paula-Pires/32/Ora%C3%A7%C3%B5es">- 
+                    Orações</a></li>
+                  <li style="padding-right: 10px; padding-left: 10px;"><a href="http://floraisastrologicos.com.br/Paula-Pires/33/Meus-Parceiros">- 
+                    Meus Parceiros</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-dir-bottom"></div>
+        <div class="area-col-bottom-dir"></div>
+      </div>
+      <div style="clear:both;"></div>
+    </div>
+    <div id="rodape-geral">
+      <div class="topo-rodape"></div>
+      <div class="rodape-noticias-facebook">
+        <div class="rodape-noticias-facebook-esq">
+          <iframe src="./Home Page_files/likebox.htm" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:560px; height:237px;" allowtransparency="true"></iframe>
+        </div>
+        <div class="rodape-noticias-facebook-dir"> </div>
+      </div>
+      <div class="rodape-cima">
+        <div class="rodape-cima-col-cont" style="margin-left:25px;width: 220px;">
+          <h1>Principal</h1>
+          <h2><a href="http://floraisastrologicos.com.br/Paula-Pires/1/teste">Quem sou</a></h2>
+          <ul>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/133/Perfil">Perfil</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/134/V%C3%ADdeos-de-Apresenta%C3%A7%C3%A3o">Vídeos de Apresentação</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/135/Forma%C3%A7%C3%A3o">Formação</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/136/Depoimentos">Depoimentos</a></li>
+          </ul>
+          <h2><a href="http://floraisastrologicos.com.br/Paula-Pires/2/Videos">Videos</a></h2>
+          <ul>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/137/V%C3%ADdeo-de-Apresenta%C3%A7%C3%A3o">Vídeo de Apresentação</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/138/As-T%C3%A9cnicas">As Técnicas</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/139/Temas-Diversos">Temas Diversos</a></li>
+            <li style="list-style:none;"><a href="http://floraisastrologicos.com.br/Paula-Pires/140/Chacras"> - Chacras</a></li>
+            <li style="list-style:none;"><a href="http://floraisastrologicos.com.br/Paula-Pires/141/Alquimia"> - Alquimia</a></li>
+          </ul>
+          <h2><a href="http://floraisastrologicos.com.br/Paula-Pires/3/Na-M%C3%ADdia">Na Mídia</a></h2>
+          <ul>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/142/TV">TV</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/143/Net">Net</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/144/M%C3%ADdia-Impressa">Mídia Impressa</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/145/R%C3%A1dio">Rádio</a></li>
+          </ul>
+          <h2><a href="http://floraisastrologicos.com.br/Paula-Pires/4/Consulta-Especial">Consulta Especial</a></h2>
+          <ul>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/146/O-que-%C3%A9?">O que é?</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/148/Contato">Contato</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/149/Formul%C3%A1rio-de-Atendimento">Formulário de Atendimento</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/150/D%C3%BAvidas">Dúvidas</a></li>
+          </ul>
+          <h2><a href="http://floraisastrologicos.com.br/Paula-Pires/5/Testes-On-line">Testes On-line</a></h2>
+          <ul>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/151/Voc%C3%AA-se-alimenta-bem?">Você se alimenta bem?</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/152/Os-elementos-da-natureza-est%C3%A3o-em-equil%C3%ADbrio-dentro-de-voc%C3%AA?">Os elementos da natureza estão em equilíbrio dentro de você?</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/153/Qual-%C3%A9-seu-Dosha-(biotipo)-dentro-da-Filosofia-Ayurv%C3%A9dica?">Qual é seu Dosha (biotipo) dentro da Filosofia Ayurvédica?</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/154/Como-transformar-sua-vida?">Como transformar sua vida?</a></li>
+          </ul>
+          <h2><a href="http://floraisastrologicos.com.br/Paula-Pires/6/Contato">Contato</a></h2>
+          <ul>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/155/Envio-de-Mensagem">Envio de Mensagem</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/156/Indique%20este%20Site">Indique este Site</a></li>
+          </ul>
+        </div>
+        <div class="rodape-cima-col-cont" style="width:260px;">
+          <h1>Técnicas</h1>
+          <h2><a href="http://floraisastrologicos.com.br/Paula-Pires/7/Terapeuta-Floral-Alqu%C3%ADmica">Terapeuta Floral Alquímica</a></h2>
+          <ul>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/34/O-que-%C3%A9-Terapia-Floral-Alqu%C3%ADmica?">O que é Terapia Floral Alquímica?</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/35/Para-que-serve-a-Terapia-Floral-Alqu%C3%ADmica?">Para que serve a Terapia Floral Alquímica?</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/36/Como-utilizo-a-Terapia-Floral-Alqu%C3%ADmica?">Como utilizo a Terapia Floral Alquímica?</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/37/Consulta-de-Terapia-Floral-Alqu%C3%ADmica">Consulta de Terapia Floral Alquímica</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/38/V%C3%ADdeo-de-Terapia-Floral-Alqu%C3%ADmica">Vídeo de Terapia Floral Alquímica</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/39/Contato">Contato</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/40/Formul%C3%A1rio-de-Atendimento">Formulário de Atendimento</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/41/D%C3%BAvidas">Dúvidas</a></li>
+          </ul>
+          <h2><a href="http://floraisastrologicos.com.br/Paula-Pires/8/Professional-e-Self-Coaching">Professional &amp; Self Coaching</a></h2>
+          <ul>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/42/O-que-%C3%A9-Coaching?">O que é Coaching?</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/43/Para-que-serve-o-Coaching?">Para que serve o Coaching?</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/44/Como-utilizo-o-Coaching?">Como utilizo o Coaching?</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/45/Atendimento-de-Coaching">Atendimento de Coaching</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/46/V%C3%ADdeo-explicativo-sobre-Coaching">Vídeo explicativo sobre Coaching</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/47/Contato">Contato</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/48/Formul%C3%A1rio-de-Atendimento">Formulário de Atendimento</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/49/D%C3%BAvidas">Dúvidas</a></li>
+          </ul>
+          <h2><a href="http://floraisastrologicos.com.br/Paula-Pires/10/Previsoes">Previsões</a></h2>
+          <ul>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/20/Previs%C3%A3o-Astrol%C3%B3gica-Semanal">Previsão Astrológica Semanal</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/21/Previs%C3%A3o-Astrol%C3%B3gica-Mensal">Previsão Astrológica Mensal</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/22/Previs%C3%A3o-Astrol%C3%B3gica-Anual">Previsão Astrológica Anual</a></li>
+          </ul>
+          <h2><a href="http://floraisastrologicos.com.br/Paula-Pires/50/Astr%C3%B3loga">Astróloga</a></h2>
+          <ul>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/52/O-que-%C3%A9-Astrologia?">O que é Astrologia?</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/53/Para-que-serve-a-Astrologia?">Para que serve a Astrologia?</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/54/Como-utilizo-a-Astrologia?">Como utilizo a Astrologia?</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/55/Fazendo-seu-Mapa-Astrol%C3%B3gico">Fazendo seu Mapa Astrológico</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/56/V%C3%ADdeo-explicativo-sobre-Astrologia">Vídeo explicativo sobre Astrologia</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/57/Contato">Contato</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/58/Formul%C3%A1rio-de-Atendimento">Formulário de Atendimento</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/59/D%C3%BAvidas">Dúvidas</a></li>
+          </ul>
+        </div>
+        <div class="rodape-cima-col-cont">
+          <h1></h1>
+          <h2><a href="http://floraisastrologicos.com.br/Paula-Pires/51/Numer%C3%B3loga">Numeróloga</a></h2>
+          <ul>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/60/O-que-%C3%A9-Numerologia?">O que é Numerologia?</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/61/Para-que-serve-a-Numerologia?">Para que serve a Numerologia?</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/62/Como-utilizo-a-Numerologia?">Como utilizo a Numerologia?</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/63/Fazendo-seu-Mapa-Numerol%C3%B3gico">Fazendo seu Mapa Numerológico</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/64/V%C3%ADdeo-explicativo-de-Numerologia">Vídeo explicativo de Numerologia</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/65/Contato">Contato</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/66/Formul%C3%A1rio-de-Atendimento">Formulário de Atendimento</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/67/D%C3%BAvidas">Dúvidas</a></li>
+          </ul>
+          <h2><a href="http://floraisastrologicos.com.br/Paula-Pires/68/Fitoterapeuta">Fitoterapeuta</a></h2>
+          <ul>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/72/%20O-que-%C3%A9-Fitoterapia?"> O que é Fitoterapia?</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/73/Para-que-serve-a-Fitoterapia?">Para que serve a Fitoterapia?</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/74/Como-utilizo-a-Fitoterapia?">Como utilizo a Fitoterapia?</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/75/Consulta-de-Fitoterapia">Consulta de Fitoterapia</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/76/V%C3%ADdeo-explicativo-sobre-Fitoterapia">Vídeo explicativo sobre Fitoterapia</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/77/Teste-Os-elementos-da-natureza-est%C3%A3o-em-equil%C3%ADbrio-dentro-de-voc%C3%AA?">Teste - Os elementos da natureza estão em   equilíbrio dentro de você?</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/78/Contato">Contato</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/79/Formul%C3%A1rio-de-Atendimento">Formulário de Atendimento</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/80/D%C3%BAvidas">Dúvidas</a></li>
+          </ul>
+          <h2><a href="http://floraisastrologicos.com.br/Paula-Pires/69/Acupunturista">Acupunturista</a></h2>
+          <ul>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/81/O-que-%C3%A9-Acupuntura?">O que é Acupuntura?</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/82/Para-que-serve-a-Acupuntura?">Para que serve a Acupuntura?</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/83/Como-utilizo-a-Acupuntura?">Como utilizo a Acupuntura?</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/84/Atendimento-de-Acupuntura">Atendimento de Acupuntura</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/85/V%C3%ADdeo-explicativo-sobre-Acupuntura">Vídeo explicativo sobre Acupuntura</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/86/Contato">Contato</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/87/Formul%C3%A1rio-de-Atendimento">Formulário de Atendimento</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/88/D%C3%BAvidas">Dúvidas</a></li>
+          </ul>
+          <h2><a href="http://floraisastrologicos.com.br/Paula-Pires/70/Reeducadora-Alimentar">Reeducadora Alimentar</a></h2>
+          <ul>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/89/O-que-%C3%A9-Reeduca%C3%A7%C3%A3o-Alimentar?">O que é Reeducação Alimentar?</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/90/Para-que-serve-a-Reeduca%C3%A7%C3%A3o-Alimentar?">Para que serve a Reeducação Alimentar?</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/91/Como-utilizo-a-Reeduca%C3%A7%C3%A3o-Alimentar?">Como utilizo a Reeducação Alimentar?</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/92/Atendimento-de-Reeduca%C3%A7%C3%A3o-Alimentar">Atendimento de Reeducação Alimentar</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/93/V%C3%ADdeo-explicativo-sobre-Reeduca%C3%A7%C3%A3o-Alimentar">Vídeo explicativo sobre Reeducação Alimentar</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/94/Teste%20-%20Voc%C3%AA-se-Alimenta-Bem?">Teste - Você se Alimenta Bem?</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/95/Contato">Contato</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/96/Formul%C3%A1rio%20de%20Atendimento">Formulário de Atendimento</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/97/D%C3%BAvidas">Dúvidas</a></li>
+          </ul>
+        </div>
+        <div class="rodape-cima-col-cont">
+          <h1></h1>
+          <h2><a href="http://floraisastrologicos.com.br/Paula-Pires/71">Iridóloga</a></h2>
+          <ul>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/98/O-que-%C3%A9-Iridologia?">O que é Iridologia?</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/99/Para-que-serve-a-Iridologia?">Para que serve a Iridologia?</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/100/Como-utilizo-a-Iridologia?">Como utilizo a Iridologia?</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/101/Atendimento-de-Iridologia">Atendimento de Iridologia</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/102/V%C3%ADdeo%20explicativo-sobre-Iridologia">Vídeo explicativo sobre Iridologia</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/103/Contato">Contato</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/104/Formul%C3%A1rio-de-Atendimento">Formulário de Atendimento</a></li>
+          </ul>
+          <h2><a href="http://floraisastrologicos.com.br/Paula-Pires/105/Consultora-de-Feng-Shui">Consultora de Feng Shui</a></h2>
+          <ul>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/108/O-que-%C3%A9-Feng-Shui?">O que é Feng Shui?</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/109/Para-que-serve-o-Feng-Shui?">Para que serve o Feng Shui?</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/110/Como-utilizo-o-Feng-Shui?">Como utilizo o Feng Shui?</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/111/Consultoria-de-Feng-Shui">Consultoria de Feng Shui</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/112/V%C3%ADdeo-sobre-Feng-Shui">Vídeo sobre Feng Shui</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/113/Contato">Contato</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/114/Formul%C3%A1rio-de-Atendimento">Formulário de Atendimento</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/115/D%C3%BAvidas">Dúvidas</a></li>
+          </ul>
+          <h2><a href="http://floraisastrologicos.com.br/Paula-Pires/106/Terapeuta-Ayurv%C3%A9dica">Terapeuta Ayurvédica</a></h2>
+          <ul>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/116/O-que-%C3%A9-Terapia-Ayurv%C3%A9dica?">O que é Terapia Ayurvédica?</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/117/Para-que-serve-a-Terapia-Ayurv%C3%A9dica?">Para que serve a Terapia Ayurvédica?</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/118/Como-utilizo-a-Terapia-Ayurv%C3%A9dica?">Como utilizo a Terapia Ayurvédica?</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/119/Atendimento-de-Terapia-Ayurv%C3%A9dica">Atendimento de Terapia Ayurvédica</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/120/V%C3%ADdeo-sobre-Terapia-Ayurv%C3%A9dica">Vídeo sobre Terapia Ayurvédica</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/121/Teste-Qual-%C3%A9-seu-Dosha-(biotipo)-dentro-da-Filosofia-Ayurv%C3%A9dica?">Teste - Qual é seu Dosha (biotipo) dentro da Filosofia Ayurvédica?</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/122/Contato">Contato</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/123/Formul%C3%A1rio-de-Atendimento">Formulário de Atendimento</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/124/D%C3%BAvidas">Dúvidas</a></li>
+          </ul>
+          <h2><a href="http://floraisastrologicos.com.br/Paula-Pires/107/Instrutora-de-Medita%C3%A7%C3%A3o">Instrutora de Meditação</a></h2>
+          <ul>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/125/O-que-%C3%A9-a-Instru%C3%A7%C3%A3o-em-Medita%C3%A7%C3%A3o?">O que é a Instrução em Meditação?</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/126/Para-que-serve-a-Instru%C3%A7%C3%A3o-em-Medita%C3%A7%C3%A3o?">Para que serve a Instrução em Meditação?</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/127/Como-utilizo-a-Instru%C3%A7%C3%A3o-em-Medita%C3%A7%C3%A3o?">Como utilizo a Instrução em Meditação?</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/128/Atendimento%20de%20Instru%C3%A7%C3%A3o-em-Medita%C3%A7%C3%A3o">Atendimento de Instrução em Meditação</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/129/V%C3%ADdeo-sobre-Instru%C3%A7%C3%A3o-em-Medita%C3%A7%C3%A3o">Vídeo sobre Instrução em Meditação</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/130/Contato">Contato</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/131/Formul%C3%A1rio-de-Atendimento">Formulário de Atendimento</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/132/D%C3%BAvidas">Dúvidas</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="rodape-baixo">
+        <div class="rodape-baixo-col-cont" style="margin-left: 23px;">
+          <h1><a href="http://floraisastrologicos.com.br/Paula-Pires/9/Encomende-Seu-Mapa">Encomende Seu Mapa</a></h1>
+          <h2><a href="http://floraisastrologicos.com.br/Paula-Pires/18/Mapas-Astrol%C3%B3gicos">Mapas Astrológicos</a></h2>
+          <ul>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/28/Mapa-de-Previsao-Anual">Mapa de Previsão Anual</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/29/Mapa-de-Sinatria">Mapa de Sinatria</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/157/Mapa-Astral">Mapa Astral</a></li>
+          </ul>
+          <h2><a href="http://floraisastrologicos.com.br/Paula-Pires/19/Mapas-Numerol%C3%B3gicos">Mapas Numerológicos</a></h2>
+          <ul>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/158/Mapa-Numerologico">Mapa Numerológico</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/159/Mapa-de-Ano-Pessoal-e-suas-tendencias">Mapa de Ano Pessoal e suas tendências</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/160/Mapa-de-Sinastria-Numerologica">Mapa de Sinastria Numerológica</a></li>
+            <li><a href="http://floraisastrologicos.com.br/Paula-Pires/161/Mapa-Empresarial">Mapa Empresarial</a></li>
+          </ul>
+        </div>
+        <div class="rodape-baixo-col-cont" style="width: 213px;">
+          <h1><a href="http://floraisastrologicos.com.br/Paula-Pires/27/Mapa-Astral">Mapa Astral</a></h1>
+        </div>
+        <div class="rodape-baixo-col-cont">
+          <h1><a href="http://floraisastrologicos.com.br/Paula-Pires/11/Testes-On-line">Teste</a></h1>
+          <h2><a href="http://floraisastrologicos.com.br/Paula-Pires/23/Como-transformar-sua-vida?">Como transformar sua vida?</a></h2>
+          <ul>
+          </ul>
+          <div class="rodape-baixo-col-cont">
+            <h1 style="width: 100px; margin-top: -13px;"><a href="http://floraisastrologicos.com.br/Paula-Pires/12/Atendimento-On-line">Atendimento On-line</a></h1>
+            <h2><a href="http://floraisastrologicos.com.br/Paula-Pires/24/Contato">Contato</a></h2>
+            <ul>
+            </ul>
+            <h2><a href="http://floraisastrologicos.com.br/Paula-Pires/25/Formul%C3%A1rio-de-Atendimento">Formulário de Atendimento</a></h2>
+            <ul>
+            </ul>
+            <h2><a href="http://floraisastrologicos.com.br/Paula-Pires/26/D%C3%BAvidas">Dúvidas</a></h2>
+            <ul>
+            </ul>
+          </div>
+        </div>
+        <div class="rodape-baixo-col-cont" style="width: 168px;"> <a href="http://floraisastrologicos.com.br/Paula-Pires/13/Materias-Autorais">
+          <h1>Matérias Autorais</h1>
+          </a> <a href="http://floraisastrologicos.com.br/Paula-Pires/14/D%C3%BAvidas-Frequentes">
+          <h1>Dúvidas Frequentes</h1>
+          </a> </div>
+        <div class="rodape-baixo-col-cont" style="width:165px;"> <a href="http://floraisastrologicos.com.br/Paula-Pires/15/Imagens">
+          <h1 style="padding-bottom: 5px;">Imagens</h1>
+          </a>
+          <div class="rodape-baixo-col-cont" style="width:165px;padding-top:8px"> <a href="http://floraisastrologicos.com.br/Paula-Pires/16/Audios">
+            <h1>Áudios</h1>
+            </a>
+            <div class="rodape-baixo-col-cont" style="width:165px;padding-top:8px"> <a href="http://floraisastrologicos.com.br/Paula-Pires/17/Extras">
+              <h1>Extras</h1>
+              </a> <a href="http://floraisastrologicos.com.br/Paula-Pires/30/Textos-Afins">
+              <h2>Textos Afins</h2>
+              </a> <a href="http://floraisastrologicos.com.br/Paula-Pires/31/Biblioteca">
+              <h2>Biblioteca</h2>
+              </a> <a href="http://floraisastrologicos.com.br/Paula-Pires/32/Ora%C3%A7%C3%B5es">
+              <h2>Orações</h2>
+              </a> <a href="http://floraisastrologicos.com.br/Paula-Pires/33/Meus-Parceiros">
+              <h2>Meus Parceiros</h2>
+              </a> </div>
+          </div>
+        </div>
+      </div>
+      <div id="rodape-linha-baixo">
+        <p> Paula Pires | Terapeuta Holística Integrativa &amp; Professional and Self Coaching<br>
+          Copyright ® 2013 • Todos os Direitos Reservados • <a href="http://paula.uppihost.com.br/Paula-Pires/201">Política de Privacidade</a> • <a href="http://paula.uppihost.com.br/Paula-Pires/202">Termos de Uso</a> </p>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

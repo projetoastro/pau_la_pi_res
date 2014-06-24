@@ -1,0 +1,50 @@
+/**
+ * RESET
+ * Reset all elements in order to do all browsers
+ * ----------------------------------------------------------------
+ * Author      : kbytes webstudio
+ * Created at  : 23-10-2013
+ * Last Update : 23-10-2013
+ * Contact     : www.kbytes.com.br | +55 11 98963-3206 | Heberth Lopes
+ * ----------------------------------------------------------------
+ */
+
+*{border:0;margin:0;outline:none;outline:0;padding:0;vertical-align:baseline;}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section{display:block;}
+ol, ul{list-style-type:none;list-style-image:none;}
+h1, h2, h3, h4, h5, h6 {font-size:100%}
+img{vertical-align:text-bottom;}
+html{}
+body{}
+select:invalid, textarea:invalid, input:invalid{-moz-box-shadow:none;box-shadow:none}
+blockquote:before, blockquote:after, q:before, q:after{content:'';content:none; }
+table{border-collapse: separate;border-spacing: 0;}
+caption, th, td {font-weight: normal;text-align: left;}
+blockquote:before, blockquote:after, q:before, q:after {content: ""}
+blockquote, q {quotes: "" ""}
+
+/* CLEARFIX  */
+.clearfix:after, li:after { clear: both; content: "."; display: block; height: 0; visibility: hidden }
+.clearfix, li { display: block; }
+.cl{clear: both;}
+
+@font-face {
+    font-family: 'trajan_probold';
+    src: url('../font/trajanpro-bold-webfont.eot');
+    src: url('../font/trajanpro-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/trajanpro-bold-webfont.woff') format('woff'),
+         url('../font/trajanpro-bold-webfont.ttf') format('truetype'),
+         url('../font/trajanpro-bold-webfont.svg#trajan_probold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'trajan_proregular';
+    src: url('../font/trajanpro-regular-webfont.eot');
+    src: url('../font/trajanpro-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/trajanpro-regular-webfont.woff') format('woff'),
+         url('../font/trajanpro-regular-webfont.ttf') format('truetype'),
+         url('../font/trajanpro-regular-webfont.svg#trajan_proregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
