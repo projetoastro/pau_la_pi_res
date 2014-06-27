@@ -25,6 +25,15 @@ $(document).ready(function(){
 	var effect = {vignette: 0,sepia: true,contrast: -10,desaturate:0.4,lighten:0,brightness:10};
 	$('img.mini').each(function(){$(this).attr('alt',$(this).attr('src'));});
 	$('img.mini').vintage(options, effect);
+	$("img.mini").hover(function(){
+		var src=$(this).attr('alt');
+		$(this).attr('alt',$(this).attr('src'));
+		$(this).attr('src',src);
+	},function(){
+		var src=$(this).attr('alt');
+		$(this).attr('alt',$(this).attr('src'));
+		$(this).attr('src',src);
+	});
 	$(".lat-esq .tecnicas li").hover(function(){
 		var src=$(this).find(".mini").attr('alt');
 		$(this).find(".mini").attr('alt',$(this).find(".mini").attr('src'));

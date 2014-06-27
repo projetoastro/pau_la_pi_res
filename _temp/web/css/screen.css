@@ -9,6 +9,7 @@ a:hover, a:active, :focus{outline:none;}
 a span{text-decoration:underline;}
 .fl{float:left;}
 .fr{float:right;}
+.hide{display:none}
 .wrapper{width:980px; margin:0 auto;}
 .content{background-color:#fff9d5;}
 h1,h2,h3{font-family:'trajan_probold';color:#294507;font-weight:normal;text-shadow: 1px 1px 2px #f7e6ba}
@@ -40,6 +41,7 @@ h1,h2,h3{font-family:'trajan_probold';color:#294507;font-weight:normal;text-shad
 .miolo h2{font-family:Tahoma, Geneva, sans-serif;font-size:20px;font-weight:bold;color:#563f1a;}
 .miolo .btn-voltar{display:block;float:right;font-family:"trajan_probold";font-size:14px;color:#294507;line-height:22px;padding-left:20px;}/*background:url('../img/sprite.png') -758px -216px no-repeat*/
 
+
 .miolo .texto{}
 
 .miolo .duvida h3{font-family:Tahoma, Geneva, sans-serif;font-size:14px;font-weight:bold;color:#563f1a;}
@@ -62,12 +64,18 @@ h1,h2,h3{font-family:'trajan_probold';color:#294507;font-weight:normal;text-shad
 .miolo .previsao li a{display:block;width:235px;height:36px;color:#FFF;}
 .miolo .previsao li.verde{background:url('../img/signo_verde.png') center center no-repeat;}
 
-.miolo .foto{padding-top:30px}
+.miolo .imagem{padding-top:30px}
+.miolo .imagem .lightbox{float:left;margin:0 20px 40px 20px}
+.miolo .imagem .lightbox a{display:none}
+.miolo .imagem .lightbox a:first-child{display:block}
+.miolo .imagem .lightbox a img{border-radius:10px}
 
 .miolo .audio{padding-top:30px}
 
 .miolo .video{padding-top:30px}
 .miolo .video object{position:absolute;z-index:1}
+
+
 
 .miolo .share{padding-top:30px}
 .miolo .share-fb{float:left;padding-right:30px}
