@@ -1,0 +1,11 @@
+admin
+
+- Módulo de Conteúdo 
+  - quando edito um item a imagem some
+  - quando edito um item o relacionamento de subcategorias vao aumentando sem parar cada vez que edito
+  - inseri o conteudo de formação dentro do quem sou, ele criou outro quem sou
+  - toda vez que edito uma pagina ele seta como desabilitada ai tenho q habilitar a pagina novamente
+
+
+site
+
