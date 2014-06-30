@@ -87,7 +87,7 @@ h1,h2,h3{font-family:'trajan_probold';color:#294507;font-weight:normal;text-shad
 
 /* ==============================
 			 FORM
-============================== */
+============================== 
 form{}
 form fieldset{padding:0 0 15px 0;}
 form fieldset legend{}
@@ -98,7 +98,17 @@ form fieldset textarea{height:120px;max-height:120px;padding-top:5px}
 form .enviar{text-align:right;}
 form .enviar input{font-family:"trajan_proregular";font-size:16px;color:#294507;border-radius:3px;background-color:transparent;}
 form .enviar input:hover{color:#fff;background-color:#294507;}
+*/
 
+form{}
+form fieldset{padding:0 0 15px 0;}
+form fieldset legend{}
+form fieldset input[type=text],form fieldset textarea{width:230px;font-size:14px;padding:0 5px;border:1px solid #8e7846;border-radius:5px;background-color:#fdeec5}
+form fieldset input[type=text]{height:25px}
+form fieldset input[type=radio]{border:1px solid #8e7846;background-color:#fdeec5}
+form fieldset textarea{height:120px;max-height:120px;padding-top:5px}
+form .enviar{text-align:center;}
+form .enviar input{font-family:"trajan_proregular";font-size:22px;color:#294507;background-color:transparent;}
 /* ==============================
 			LATERAL ESQ 
 ============================== */
