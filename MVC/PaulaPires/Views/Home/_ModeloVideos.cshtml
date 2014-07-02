@@ -1,0 +1,61 @@
+﻿@model PaulaPires.Models.ModeloVideos
+<article class="miolo">
+    <nav>
+        <h1 class="tit size-25">@Model.CategoriaNome</h1>
+
+        <div class="cl"></div>
+
+        <div class="sub">
+            @foreach (var item in @Model.SubCategoria)
+            {
+                <a href="/@item.CategoriaId.UrlAmigavel/@item.UrlAmigavel/@item.Pagina.UrlAmigavel">@item.Pagina.TituloMenu</a>
+            }
+            @*<a href="#" class="selected">Perfil</a>*@
+        </div>
+        
+        @if (Model.SubMenuTratamento.Count > 0){
+
+            <div class="sub-lateral">
+            @foreach (var item in @Model.SubMenuTratamento)
+            {
+                <a href="/@item.CategoriaId.UrlAmigavel/@item.UrlAmigavel/@item.Pagina.UrlAmigavel">@item.Pagina.TituloMenu</a>
+            }
+             @*   <a href="#">Vídeo</a>
+                <a href="#">Dúvidas</a>
+                <a href="#">Contato</a>
+                <a href="#">Formulário</a>*@
+            </div>
+        }
+        <div class="cl"></div>
+        <div class="size"><a href="javascript:sizeMenos()" class="size-menos">-A</a> &nbsp;<a href="javascript:sizeMais()" class="size-mais">+A</a></div>
+        <div class="cl"></div>
+    </nav>
+
+    <div class="video">
+        <object width="555" height="312">
+        <param name="movie" value="@Html.Raw(HttpUtility.HtmlDecode(Model.Conteudo))"></param>
+        <param name="allowFullScreen" value="true"></param>
+        <param name="allowscriptaccess" value="always"></param>
+        <embed src="@Html.Raw(HttpUtility.HtmlDecode(Model.Conteudo))" type="application/x-shockwave-flash" width="555" height="312" allowscriptaccess="always" allowfullscreen="true"></embed>
+        </object>
+    </div>
+
+    <div class="share">
+        <div class="share-fb">
+            <div class="fb-share-button" data-href="http://astrologiaalquimica.com.br/_temp/" data-type="button_count"></div>
+        </div>
+        <div class="share-tw"><a href="http://astrologiaalquimica.com.br/_temp/" class="twitter-share-button" data-via="Paula Pires" data-lang="en">Tweet</a></div>
+        <div class="share-go">
+            <div class="g-plus" data-action="share" data-annotation="bubble" data-href="http://astrologiaalquimica.com.br/_temp/"></div>
+        </div>
+
+        <div class="cl"></div>
+
+        <div class="comments-fb">
+            <div class="fb-comments" data-href="http://astrologiaalquimica.com.br/_temp/" data-width="555" data-numposts="1" data-colorscheme="light"></div>
+        </div>
+        <!--
+                <div class="comments-go"><div class="g-comments" data-href="http://astrologiaalquimica.com.br/_temp/" data-width="555" data-first_party_property="BLOGGER" data-view_type="FILTERED_POSTMOD"></div></div>
+-->
+    </div>
+</article>

@@ -1,0 +1,44 @@
+﻿@model IList<PaulaPires.Models.ModeloImagens>
+@if (Model.Count > 0)
+{
+    <div class="portlet-body">
+        <h4 class="block">
+            Lista de imagens da página</h4>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Imagem
+                    </th>
+                    <th>
+                        Descrição
+                    </th>
+                    <th>
+                        Ordem
+                    </th>
+                    <th>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            <img src="/img/paginasImagens/thumb/@item.Imagem" alt="@item.Descricao">
+                        </td>
+                        <td>@item.Descricao
+                        </td>
+                        <td>@item.Orderby
+                        </td>
+                        <td>
+                            <a href="@Url.Action("Cadastrar", "ConteudoImagens", new { area = "administrador", pCadastro = @item.Id })" class="btn default btn-xs green filter-cancel remover" >
+                                <i class="fa fa-edit"></i>Editar</a> <a class="btn default btn-xs red filter-cancel remover-imagem" data-value="@item.Id" id="remover">
+                                    <i class="fa fa-times"></i>Remover</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}

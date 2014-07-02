@@ -1,0 +1,174 @@
+﻿@model PaulaPires.Models.ModeloLinks
+
+@{
+    ViewBag.Title = "Cadastro de links";
+    Layout = "~/Areas/administrador/Views/Shared/_Layout.cshtml";
+}
+
+<div class="portlet box">
+    <div class="portlet-body form">
+        <!-- BEGIN FORM-->
+        @using (Html.BeginForm("Cadastrar", "ConteudoLinks", FormMethod.Post, new { @class = "form-horizontal form-row-seperated", @id = "cadastrar_categoria", @role = "form", enctype = "multipart/form-data" }))
+        {           
+            <input type="hidden" name="Id" id="Id" value="@Model.Id"/>
+             
+            <div class="form-body">
+                <div class="alert alert-danger display-hide">
+                    <button class="close" data-close="alert"></button>
+                    Favor corrigir os erros do formulário antes de enviá-lo.
+                </div>
+                <div class="alert alert-success display-hide">
+                    <button class="close" data-close="alert"></button>
+                    Formulário enviado com sucesso!
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3">Página</label>
+                    <div class="col-md-9">                        
+                        @Html.DropDownListFor(model => model.PaginaId, new SelectList(ViewBag.Paginas, "Id", "TituloPagina"), "Selecione", new { @class = "form-control select2me", @name = "PaginaId" })
+                        <span class="help-block">Página do conteúdo
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3">Título do link</label>
+                    <div class="col-md-9">
+                        <input type="text" name="Conteudo" id="Conteudo" placeholder="título do link" class="form-control" data-required="1" value="@Model.Conteudo" />
+                        <span class="help-block">Título do link
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-3">Url</label>
+                    <div class="col-md-9">
+                        <input type="text" id="Url" name="Url" placeholder="resposta" class="form-control" value="@Model.Url" />
+                        <span class="help-block">Url
+                        </span>
+                    </div>
+                </div>                
+                <div class="form-group">
+                    <label class="control-label col-md-3">Ordem</label>
+                    <div class="col-md-9">
+                        <div id="spinner1">
+                            <div class="input-group input-small">
+                                <input type="text" name="Orderby" id="Orderby" class="spinner-input form-control" maxlength="3" value="@Model.Orderby">
+                                <div class="spinner-buttons input-group-btn btn-group-vertical">
+                                    <button type="button" class="btn spinner-up btn-xs blue">
+                                        <i class="fa fa-angle-up"></i>
+                                    </button>
+                                    <button type="button" class="btn spinner-down btn-xs blue">
+                                        <i class="fa fa-angle-down"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="help-block">Ordem da url
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-actions fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="col-md-offset-3 col-md-9">
+                            <button type="submit" class="btn green"><i class="fa fa-pencil"></i>Salvar</button>
+                            <a href="@Url.Action("Index", "Paginas", new { area = "administrador" })" class="btn default">Cancelar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+        <!-- END FORM-->
+    </div>
+</div>
+
+@section pageTitle{
+    Conteúdo <small>Cadastro de conteúdo Perguntas e respostas</small>
+}
+@section breadcrumb{
+        <li>Conteúdo
+        <i class="fa fa-angle-right"></i>
+    </li>
+    <li>
+        <a href="@Url.Action("Index", "Paginas", new { area = "administrador" })">Páginas
+        </a>
+        <i class="fa fa-angle-right"></i>
+    </li>
+
+    @if (Model.Id > 0)
+    {
+        <li><a href="@Url.Action("Visualizar", "Paginas", new { area = "administrador", @pPagina = @Model.PaginaId })">@Model.Pagina.TituloPagina</a>
+            <i class="fa fa-angle-right"></i>
+        </li>
+        <li>Editar conteúdo FAQ</li>
+    }
+    else
+    {
+        <li>Cadastrar conteúdo FAQ</li>
+    }
+
+}
+@section pagelevelpluginstyles{
+    <link rel="stylesheet" type="text/css" href="/Areas/administrador/assets/plugins/select2/select2.css" />
+    <link rel="stylesheet" type="text/css" href="/Areas/administrador/assets/plugins/select2/select2-metronic.css" />
+
+
+    <link rel="stylesheet" type="text/css" href="/Areas/administrador/assets/plugins/bootstrap-fileinput/bootstrap-fileinput.css" />
+    <link rel="stylesheet" type="text/css" href="/Areas/administrador/assets/plugins/bootstrap-switch/css/bootstrap-switch.min.css" />
+    <link rel="stylesheet" type="text/css" href="/Areas/administrador/assets/plugins/jquery-tags-input/jquery.tagsinput.css" />
+    <link rel="stylesheet" type="text/css" href="/Areas/administrador/assets/plugins/bootstrap-markdown/css/bootstrap-markdown.min.css">
+    <link rel="stylesheet" type="text/css" href="/Areas/administrador/assets/plugins/typeahead/typeahead.css">
+}
+@section scriptsinline{
+    <script>
+        jQuery(document).ready(function () {
+            FormSamples.init();
+            ComponentsFormTools.init();
+            FormValidation.init();
+
+            var spinner = $("#spinner1").spinner();
+
+            $('#spinner1').click(function() {
+                var spinnerValor = spinner.spinner("value");
+                var idCategoria = $('#Id').val();
+                var idSecao = $('#SecaoIdValue').val();
+                $.ajax({
+                    type: "POST",
+                    url: "/administrador/Categorias/ValidaOrdem",
+                    data: { pCategoriaId: idCategoria, pOrderBy: spinnerValor, pSecaoId: idSecao },
+                    success: function (result) {
+                        if (result) {
+                            console.log(result);
+                            //alert("Esta ordem está indisponível para esse tipo de categoria");
+                            //spinner.spinner("value", '');
+                        }
+                    },
+                    dataType: "JSON"
+                });
+
+            });
+        });
+
+    </script>
+}
+@section pagelevelscripts{
+    <script src="/Areas/administrador/assets/scripts/core/app.js"></script>
+    <script src="/Areas/administrador/assets/scripts/custom/form-samples.js"></script>
+    <script src="/Areas/administrador/assets/scripts/custom/components-form-tools.js"></script>
+    <script src="/Areas/administrador/assets/scripts/paulapires/categorias.js"></script>
+
+}
+@section pagelevelplugins{
+    <script type="text/javascript" src="/Areas/administrador/assets/plugins/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="/Areas/administrador/assets/plugins/select2/select2.min.js"></script>
+    <script type="text/javascript" src="/Areas/administrador/assets/plugins/typeahead/typeahead.js"></script>
+    <script type="text/javascript" src="/Areas/administrador/assets/plugins/typeahead/handlebars.min.js"></script>
+    <script type="text/javascript" src="/Areas/administrador/assets/plugins/fuelux/js/spinner.min.js"></script>
+    <script type="text/javascript" src="/Areas/administrador/assets/plugins/bootstrap-fileinput/bootstrap-fileinput.js"></script>
+    <script type="text/javascript" src="/Areas/administrador/assets/plugins/jquery-inputmask/jquery.inputmask.bundle.min.js"></script>
+    <script type="text/javascript" src="/Areas/administrador/assets/plugins/jquery.input-ip-address-control-1.0.min.js"></script>
+    <script src="/Areas/administrador/assets/plugins/jquery.pwstrength.bootstrap/src/pwstrength.js" type="text/javascript"></script>
+    <script src="/Areas/administrador/assets/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
+    <script src="/Areas/administrador/assets/plugins/jquery-tags-input/jquery.tagsinput.min.js" type="text/javascript"></script>
+    <script src="/Areas/administrador/assets/plugins/bootstrap-maxlength/bootstrap-maxlength.min.js" type="text/javascript"></script>
+    <script src="/Areas/administrador/assets/plugins/bootstrap-touchspin/bootstrap.touchspin.js" type="text/javascript"></script>
+}

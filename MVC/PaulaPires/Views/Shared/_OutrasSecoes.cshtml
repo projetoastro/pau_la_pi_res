@@ -1,0 +1,31 @@
+﻿@model IList<PaulaPires.Models.Categorias>
+@foreach (var item in Model)
+{
+    if (@item.HaveSubMenus)
+    {
+    <div class="menu big">
+        <ul class="lat-dir-menu">
+            @foreach (var item2 in @item.SubCategoria)
+            {
+                <li><a href="/@item.UrlAmigavel/@item2.UrlAmigavel/@item2.Pagina.UrlAmigavel">- @item2.Nome</a></li>
+            }
+        </ul>
+        <h1 class="size-17 unico">
+            <a href="#">@item.Nome</a></h1>
+    </div>
+    }
+    else
+    {
+    <h1 class="size-17 unico">
+        @if (item.PaginaId > 0)
+        {
+            <a href="/@item.UrlAmigavel/@item.Pagina.UrlAmigavel">@item.Nome</a>
+        }
+        else
+        {
+            <a href="#">@item.Nome</a>
+        }
+    </h1>
+    }
+
+}

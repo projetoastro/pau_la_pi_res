@@ -1,0 +1,150 @@
+﻿@{
+    ViewBag.Title = "Lista de páginas";
+    Layout = "~/Areas/administrador/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-12">
+
+        <div class="alert alert-success
+            
+            @if (!@ViewBag.SucessoForm)
+            {
+                @:display-hide
+            }
+            
+            ">
+            <button class="close" data-close="alert"></button>
+            Dados cadastrados com sucesso! 
+        </div>
+
+        <!-- BEGIN EXAMPLE TABLE PORTLET-->
+        <div class="portlet">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="fa fa-globe"></i>Páginas
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div class="table-toolbar">
+                    <div class="btn-group">
+                        <a href="@Url.Action("Cadastrar", "Paginas", new { area = "administrador" })" class="btn green">Novo <i class="fa fa-plus"></i>
+                        </a>
+                    </div>
+                </div>
+                <table class="table table-striped table-bordered table-hover" id="sample_1">
+                    <thead>
+                        <tr>
+                            <th>Modelo
+                            </th>
+                            <th>Titulo Menu
+                            </th>
+                            <th>UrlAmigavel
+                            </th>
+                            <th>Ordem
+                            </th>
+                            <th>Status
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in @ViewBag.paginas)
+                        {
+                            <tr class="odd gradeX">
+                                <td>
+                                    @item.Modelos.Nome
+                                </td>
+                                <td>
+                                    @item.TituloMenu
+                                </td>
+                                <td>
+                                    @item.UrlAmigavel
+                                </td>
+                                <td>
+                                    @item.Orderby
+                                </td>
+                                <td>
+                                    @if (@item.Actived)
+                                    {
+                                        @:Ativo
+                                    }
+                                    else
+                                    {
+                                        @:Inativo
+                                    }                                                                            
+                                </td>
+                                <td>
+                                    <a class="btn default btn-xs red filter-cancel remover" data-value="@item.Id" id="remover"><i class="fa fa-times"></i>Remover</a>
+                                    <a href="@Url.Action("Visualizar", "Paginas", new { area = "administrador", @pCadastroId = @item.Id })" class="btn default btn-xs yellow filter-submit margin-bottom"><i class="fa fa-search"></i>Visualizar</a>
+                                    <a href="@Url.Action("DesabilitarHabilitar", "Paginas", new { area = "administrador", @pCadastroId = @item.Id })" class="btn default btn-xs dark filter-submit margin-bottom"><i class="fa fa-link"></i>
+                                        @if (item.Actived)
+                                        {
+                                            @:Desabilitar
+                                        }
+                                        else
+                                        {
+                                            @:Habilitar
+                                        }
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-- END EXAMPLE TABLE PORTLET-->
+    </div>
+</div>
+
+
+@section pageTitle{
+    Conteúdo <small>Lista de páginas</small>
+}
+@section breadcrumb{
+    <li>Conteúdo
+        <i class="fa fa-angle-right"></i>
+    </li>
+   <li>Páginas
+    </li>
+}
+@section pagelevelpluginstyles{
+    <link rel="stylesheet" type="text/css" href="/Areas/administrador/assets/plugins/select2/select2.css" />
+    <link rel="stylesheet" type="text/css" href="/Areas/administrador/assets/plugins/select2/select2-metronic.css" />
+    <link rel="stylesheet" href="/Areas/administrador/assets/plugins/data-tables/DT_bootstrap.css" />
+}
+@section scriptsinline{
+    <script>
+        jQuery(document).ready(function () {
+            TableManaged.init();
+        });
+
+        $('#sample_1 tbody').on('click', '.remover', function (e) {
+            if (confirm("Deseja realmente deletar este item?")) {
+                var itemId = $(this).data("value");
+                $.ajax({
+                    type: "POST",
+                    url: "/administrador/Paginas/Deletar",
+                    data: { pCadastro: itemId },
+                    success: function (result) {
+                        alert("Item deletado com sucesso!")
+                        window.location.reload(true);
+                    },
+                    dataType: "JSON"
+                });
+            }
+            else { return false; }
+        });
+
+    </script>
+}
+@section pagelevelscripts{
+    <script src="/Areas/administrador/assets/scripts/core/app.js"></script>
+    <script src="/Areas/administrador/assets/scripts/custom/table-managed.js"></script>
+}
+@section pagelevelplugins{
+    <script type="text/javascript" src="/Areas/administrador/assets/plugins/select2/select2.min.js"></script>
+    <script type="text/javascript" src="/Areas/administrador/assets/plugins/data-tables/jquery.dataTables.js"></script>
+    <script type="text/javascript" src="/Areas/administrador/assets/plugins/data-tables/DT_bootstrap.js"></script>
+}

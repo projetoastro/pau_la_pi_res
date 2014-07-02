@@ -1,0 +1,187 @@
+﻿@model PaulaPires.Models.Categorias
+@{
+    ViewBag.Title = "Visualizar Categorias";
+    Layout = "~/Areas/administrador/Views/Shared/_Layout.cshtml";
+}
+<div class="row">
+    <div class="portlet box">
+        <div class="portlet-body form">
+            <!-- BEGIN FORM-->
+            <div class="form-body">
+                <h3 class="title-view">@Model.Id - @Model.Nome </h3>
+                <h4 class="form-section">Informações gerais</h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Url Amigável:</label>
+                            <div class="col-md-9">
+                                <p class="form-control-static">
+                                    @Model.UrlAmigavel
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/span-->
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Seção:</label>
+                            <div class="col-md-9">
+                                <p class="form-control-static">
+                                    @Model.SecaoId.Nome [@Model.SecaoId.Id]
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/span-->
+                </div>
+                <!--/row-->
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Css Class:</label>
+                            <div class="col-md-9">
+                                <p class="form-control-static">
+                                    @Model.CssClass
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/span-->
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Thumb:</label>
+                            <div class="col-md-9">
+                                <p class="form-control-static">
+                                    <img src="/img/tecnicas/@Model.Thumb"/>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/span-->
+                </div>
+                <!--/row-->
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Ordem:</label>
+                            <div class="col-md-9">
+                                <p class="form-control-static">
+                                    @Model.Orderby
+
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/span-->
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Cadastro</label>
+                            <div class="col-md-9">
+                                <p class="form-control-static">
+                                    @Model.Created
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/span-->
+                </div>
+                <!--/row-->
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Status:</label>
+                            <div class="col-md-9">
+                                <p class="form-control-static">
+                                    @if (@Model.Actived)
+                                    {
+                                        @:Ativo
+                                    }
+                                    else
+                                    {
+                                        @:Inativo
+                                    }
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/span-->
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Atualização</label>
+                            <div class="col-md-9">
+                                <p class="form-control-static">
+                                    @Model.Updated
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/span-->
+                </div>
+                <h4 class="form-section">Informações específicas</h4>
+                <div class="portlet-body">
+                    <h4 class="block">Sub Categorias</h4>
+                    <ul class="list-group">
+                        @if (ViewBag.SubCategorias.Count > 0)
+                        {
+                            foreach (var item in ViewBag.SubCategorias)
+                            {
+                                <li class="list-group-item">
+                                    <span class="badge badge-warning">
+                                              @item.Orderby
+                                    </span> 
+                                    @item.Nome
+                                </li>
+                            }
+                        }
+                        else
+                        {
+                            <li class="list-group-item">Nenhuma categoria associada</li>
+                        }
+
+                    </ul>
+                </div>
+                <div class="form-actions fluid">
+                    <div class="col-md-6">
+                        <a href="@Url.Action("Cadastrar", "Categorias", new { area = "administrador", pCadastro = @Model.Id })" class="btn green"><i class="fa fa-pencil"></i>Editar</a>
+                        <a href="@Url.Action("Index", "Categorias", new { area = "administrador" })" class="btn default">Cancelar</a>
+                    </div>
+                </div>
+                <!-- END FORM-->
+            </div>
+        </div>
+    </div>
+</div>
+
+@section pageTitle{
+    Categorias <small>visualizar</small>
+}
+@section breadcrumb{
+        <li>Configurações
+        <i class="fa fa-angle-right"></i>
+    </li>
+    <li>
+        <a href="@Url.Action("Index", "Categorias", new { area = "administrador" })">Categorias
+        </a>
+        <i class="fa fa-angle-right"></i>
+    </li>
+    <li>@Model.Nome     </li>
+}
+@section pagelevelpluginstyles{
+    <link rel="stylesheet" type="text/css" href="/Areas/administrador/assets/plugins/select2/select2.css" />
+    <link rel="stylesheet" type="text/css" href="/Areas/administrador/assets/plugins/select2/select2-metronic.css" />
+    <link rel="stylesheet" type="text/css" href="/Areas/administrador/assets/css/pages/categorias-visualizar.css" />
+}
+@section scriptsinline{
+    <script>
+        jQuery(document).ready(function () {
+            FormSamples.init();
+        });
+    </script>
+}
+@section pagelevelscripts{
+    <script src="/Areas/administrador/assets/scripts/core/app.js"></script>
+    <script src="/Areas/administrador/assets/scripts/custom/form-samples.js"></script>
+}
+@section pagelevelplugins{
+    <script type="text/javascript" src="/Areas/administrador/assets/plugins/select2/select2.min.js"></script>
+}

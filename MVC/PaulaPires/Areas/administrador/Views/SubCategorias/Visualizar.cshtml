@@ -1,0 +1,182 @@
+﻿@model PaulaPires.Models.SubCategorias
+@{
+    ViewBag.Title = "Visualizar outras categorias";
+    Layout = "~/Areas/administrador/Views/Shared/_Layout.cshtml";
+}
+<div class="row">
+    <div class="portlet box">
+        <div class="portlet-body form">
+            <!-- BEGIN FORM-->
+            <div class="form-body">
+                <h3 class="title-view">@Model.Id - @Model.Nome </h3>
+                <h4 class="form-section">Informações gerais</h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Url Amigável:</label>
+                            <div class="col-md-9">
+                                <p class="form-control-static">
+                                    @Model.UrlAmigavel
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/span-->
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Categoria:</label>
+                            <div class="col-md-9">
+                                <p class="form-control-static">
+                                    @Model.CategoriaId.Nome [@Model.CategoriaId.Id]
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/span-->
+                </div>
+                <!--/row-->
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Mostra no submenu:</label>
+                            <div class="col-md-9">
+                                <p class="form-control-static">
+                                    @if (@Model.MostraSubMenu)
+                                    {
+                                        @:Sim
+                                    }
+                                    else
+                                    {
+                                        @:Não
+                                    }
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/span-->
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Ordem:</label>
+                            <div class="col-md-9">
+                                <p class="form-control-static">
+                                    @Model.Orderby
+
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/span-->
+                </div>
+                <!--/row-->
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Cadastro</label>
+                            <div class="col-md-9">
+                                <p class="form-control-static">
+                                    @Model.Created
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/span-->
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Status:</label>
+                            <div class="col-md-9">
+                                <p class="form-control-static">
+                                    @if (@Model.Actived)
+                                    {
+                                        @:Ativo
+                                    }
+                                    else
+                                    {
+                                        @:Inativo
+                                    }
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Mostra menu direito tratamento:</label>
+                            <div class="col-md-9">
+                                <p class="form-control-static">
+                                    @if (@Model.MostraMenuTratamento)
+                                    {
+                                        @:Sim
+                                    }
+                                    else
+                                    {
+                                        @:Não
+                                    }
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/span-->
+                </div>
+                <h4 class="form-section">Informações específicas</h4>
+                <div class="portlet-body">
+                    <h4 class="block">Sub Categorias</h4>
+                    <div class="list-group">
+                        @*@if (ViewBag.SubCategorias.Count > 0)
+                        {
+                            foreach (var item in ViewBag.SubCategorias)
+                            {
+                            @item.Nome
+                            }
+                        }
+                        else
+                        {
+                            <div>Nenhuma subcategoria cadastrada</div>
+                        }*@
+                    </div>
+                </div>
+                <div class="form-actions fluid">
+                    <div class="col-md-6">
+                        <a href="@Url.Action("Cadastrar", "SubCategorias", new { area = "administrador", pCadastro = @Model.Id })" class="btn green"><i class="fa fa-pencil"></i>Editar</a>
+                        <a href="@Url.Action("Index", "SubCategorias", new { area = "administrador" })" class="btn default">Cancelar</a>
+                    </div>
+                </div>
+                <!-- END FORM-->
+            </div>
+        </div>
+    </div>
+</div>
+
+@section pageTitle{
+    Outras Categorias <small>visualizar</small>
+}
+@section breadcrumb{
+        <li>Configurações
+        <i class="fa fa-angle-right"></i>
+    </li>
+    <li>
+        <a href="@Url.Action("Index", "SubCategorias", new { area = "administrador" })">Outras Categorias
+        </a>
+        <i class="fa fa-angle-right"></i>
+    </li>
+    <li>@Model.Nome </li>
+}
+@section pagelevelpluginstyles{
+    <link rel="stylesheet" type="text/css" href="/Areas/administrador/assets/plugins/select2/select2.css" />
+    <link rel="stylesheet" type="text/css" href="/Areas/administrador/assets/plugins/select2/select2-metronic.css" />
+    <link rel="stylesheet" type="text/css" href="/Areas/administrador/assets/css/pages/categorias-visualizar.css" />
+}
+@section scriptsinline{
+    <script>
+        jQuery(document).ready(function () {
+            FormSamples.init();
+        });
+    </script>
+}
+@section pagelevelscripts{
+    <script src="/Areas/administrador/assets/scripts/core/app.js"></script>
+    <script src="/Areas/administrador/assets/scripts/custom/form-samples.js"></script>
+}
+@section pagelevelplugins{
+    <script type="text/javascript" src="/Areas/administrador/assets/plugins/select2/select2.min.js"></script>
+}

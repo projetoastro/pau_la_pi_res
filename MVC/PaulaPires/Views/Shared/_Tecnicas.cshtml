@@ -1,0 +1,35 @@
+﻿@model IList<PaulaPires.Models.Categorias>
+@foreach (var item in Model)
+{        
+    <li>
+        <div class="thumb">
+            <img src="/img/menu_esq_top.png" class="mask"><div class="sepia">&nbsp;</div>
+            <img src="/img/tecnicas/@item.Thumb" class="mini">
+        </div>
+        <div class="txtLabel">
+            <label>
+                <p><span>@item.Nome</span></p>
+            </label>
+        </div>
+        @if (@item.HaveSubMenus)
+        {
+            <div class="over">
+                <img src="/img/menu_esq_barra.png" class="barra-over"><img src="/img/btn_over_tecnicas.png" class="btn-over">
+            </div>
+            <div class="cl"></div>
+            <ul class="lat-esq-menu">
+                @foreach (var item2 in @item.SubCategoria)
+                {
+                    <li><a href="/@item.UrlAmigavel/@item2.UrlAmigavel/@item2.Pagina.UrlAmigavel">- @item2.Nome</a></li>
+                }
+                @*<li><a href="#">- Para que serve a Terapia Floral Alquímica?</a></li>
+                <li><a href="#">- Como utilizo a Terapia Floral Alquímica?</a></li>
+                <li><a href="#">- Consulta de Terapia Floral Alquímica</a></li>
+                <li><a href="#">- Vídeo de Terapia Floral Alquímica</a></li>
+                <li><a href="#">- Contato</a></li>
+                <li><a href="#">- Formulário de Atendimento</a></li>
+                <li><a href="#">- Dúvidas</a></li>*@
+            </ul>
+        }
+    </li>
+}

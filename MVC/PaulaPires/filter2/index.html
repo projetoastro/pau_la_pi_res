@@ -1,0 +1,232 @@
+<!docype html>
+<!-- John Robinson - http://www.storminthecastle.com -->
+<html>
+  
+  <head>
+    <meta charset="UTF-8" />
+    <title>Image Filters!</title>
+    <script>
+      var canvas;
+      var context;
+      var imageURL;
+      var imageFilter;
+
+      // grayscale filter using an arithmetic average of the color 
+      // components
+      grayscale = function (pixels, args) {
+        var d = pixels.data;
+        for (var i = 0; i < d.length; i += 4) {
+          var r = d[i];
+          var g = d[i + 1];
+          var b = d[i + 2];
+          d[i] = d[i + 1] = d[i + 2] = (r+g+b)/3;
+        }
+        return pixels;
+      };
+
+      // sepia-style filter that gives a warm antique feel to an image
+      sepia = function (pixels, args) {
+        var d = pixels.data;
+        for (var i = 0; i < d.length; i += 4) {
+          var r = d[i];
+          var g = d[i + 1];
+          var b = d[i + 2];
+          d[i]     = (r * 0.393)+(g * 0.769)+(b * 0.189); // red
+          d[i + 1] = (r * 0.349)+(g * 0.686)+(b * 0.168); // green
+          d[i + 2] = (r * 0.272)+(g * 0.534)+(b * 0.131); // blue
+        }
+        return pixels;
+      };
+            
+      // filter that shifts all color information to red
+      red = function (pixels, args) {
+        var d = pixels.data;
+        for (var i = 0; i < d.length; i += 4) {
+          var r = d[i];
+          var g = d[i + 1];
+          var b = d[i + 2];
+          d[i] = (r+g+b)/3;        // apply average to red channel only
+          d[i + 1] = d[i + 2] = 0; // zero out green and blue channel
+        }
+        return pixels;
+      };
+      
+      // filter that brightens an image by adding a fixed value 
+      // to each color component
+      // a javascript closure is used to parameterize the filter 
+      // with the delta value
+      brightness = function(delta) {
+          return function (pixels, args) {
+            var d = pixels.data;
+            for (var i = 0; i < d.length; i += 4) {
+              d[i] += delta;     // red
+              d[i + 1] += delta; // green
+              d[i + 2] += delta; // blue   
+            }
+            return pixels;
+          };
+      };
+
+      // apply a filter to the image data contained in the canvas object
+      function filterCanvas(filter) {
+        if (canvas.width > 0 && canvas.height > 0) {
+          var imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+          filter(imageData);
+          context.putImageData(imageData, 0, 0);
+        }
+      }
+
+      // load the image specified by the imageURL and apply
+      // the filter imageFilter
+      function update() {
+        document.querySelector("#before_image").src = imageURL;
+        var image = new Image();
+        image.onload = function () {
+          if (image.width != canvas.width)
+            canvas.width = image.width;
+          if (image.height != canvas.height)
+            canvas.height = image.height;
+          context.clearRect(0, 0, canvas.width, canvas.height);
+          context.drawImage(image, 0, 0, canvas.width, canvas.height);
+          filterCanvas(imageFilter);
+        }
+        image.src = imageURL;
+      }
+
+      // open a File object.
+      function handleFiles(files) {
+        var file = files[0];
+
+        // Only process image files. 
+        var imageType = /image.*/;
+        if (!file.type.match(imageType)) {
+          return;
+        }
+
+        var reader = new FileReader();
+
+        reader.onerror = function (e) {
+          alert('Error code: ' + e.target.error);
+        };
+
+        // Create a closure to capture the file information. 
+        reader.onload = (function (file) {
+          return function (evt) {
+            document.querySelector("#filename").innerHTML = file.name;
+            loadImage(evt.target.result);
+          }
+        })(file);
+
+        // Read in the image file as a data url. 
+        reader.readAsDataURL(file);
+      }
+      
+      function loadImage(u) {
+        imageURL = u;
+        update();
+      }
+      
+      function setFilter(f) {
+        imageFilter = f;
+        update();
+      }
+
+       // Reset to default image and filter
+      function reset() {
+        imageURL = "./sandbox.jpg";
+        imageFilter = grayscale;
+        document.querySelector("#filename").innerHTML = "";
+        update();
+      }
+
+      function onLoad() {
+        canvas = document.querySelector("#after_image");
+        context = canvas.getContext("2d");
+
+        registerDragAndDrop(document, handleFiles);
+
+        // Reset to defaults loading a default image
+        reset();                
+      }
+
+       // Define helper function to register an object for drag and drop
+      var registerDragAndDrop = (function () {
+
+        function stopDefault(e) {
+          e.stopPropagation();
+          e.preventDefault();
+        }
+
+        return function (obj, f) {
+          // Setup drag and drop handlers. 
+          obj.addEventListener('dragenter', stopDefault, false);
+          obj.addEventListener('dragover', stopDefault, false);
+          obj.addEventListener('dragleave', stopDefault, false);
+          obj.addEventListener('drop', function (e) {
+            stopDefault(e);
+            var files = e.dataTransfer.files;
+            if (files && files.length > 0)
+              f(files);
+          }, false);
+        }
+      })();
+
+       // Define helper function to prompt the user to choose a file from disk
+      var openFile = (function () {
+        return function (c) {
+          var fileinput = document.querySelector("#fileinput");        
+          function onfilechange(e) {
+              var files = e.target.files;
+              if (files && files.length > 0)
+                c(files);
+          }
+          fileinput.addEventListener('change', onfilechange, false);
+          //fileinput.change(onfilechange);
+          fileinput.click();
+        }
+      })();        
+
+    </script>
+  </head>
+  
+  <body onload="onLoad();">
+    
+    <h1>Image Filters!</h1>
+    <a href="http://www.storminthecastle.com/2013/04/06/how-you-can-do-cool-image-effects-using-html5-canvas/">Article and Sample App by John Robinson.</a>
+
+    <br/>
+    <br/>To open your own image you can click the open button or drag and drop an image to this window.
+    <br/>
+    <br/>
+    <button onclick="reset();">Reset</button>
+    <button onclick="openFile(handleFiles);">Open</button>
+    <span id="filename"></span>
+    
+    <input id="fileinput" style="display:none;" type="file">
+
+    <br/>
+    <br/>Choose Filter:
+    <a href="javascript:setFilter(grayscale);">grayscale</a> 
+    <a href="javascript:setFilter(sepia);">sepia</a>
+    <a href="javascript:setFilter(red);">red</a> 
+    <a href="javascript:setFilter(brightness(30));">brighter</a>
+    <a href="javascript:setFilter(brightness(-30));">darker</a>
+
+    <br/>
+    <div style="display:inline-block;">
+    <br/>
+    <b>Before:</b>
+
+    <br/>
+    <img id="before_image" style="border:1px solid black;" />
+    </div>
+    <div style="display:inline-block;">
+    <br/>
+    <b>After:</b>
+
+    <br/>
+    <canvas id="after_image" style="border:1px solid black;">Your browser does not support the canvas tag.</canvas>
+    </div>
+  </body>
+
+</html>

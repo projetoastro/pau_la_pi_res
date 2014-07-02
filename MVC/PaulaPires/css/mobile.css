@@ -1,0 +1,114 @@
+/* ==============================
+			GERAL 
+============================== */
+html,body{font-family:Tahoma, Geneva, sans-serif;font-size:14px;color:#563f1a;}
+html{background:#161616 url('../img/mobile/bg1.jpg') top center no-repeat;}
+#audio, #playlist{display:none}
+a,input{color:#563f1a;text-decoration:none;}
+a:hover, a:active, :focus{outline:none;}
+a span{text-decoration:underline;}
+.fl{float:left;}
+.fr{float:right;}
+.wrapper{width:320px; margin:0 auto;}
+.content{background-color:#fff9d5;}
+h1,h2,h3{font-family:'trajan_probold';color:#294507;font-weight:normal;text-shadow: 1px 1px 2px #f7e6ba}
+.size-17{font-size:17px;}
+.size-18{font-size:18px;}
+.size-19{font-size:19px;}
+.size-22{font-size:22px;text-shadow: #f7e6ba 0 1px 1px;}
+.size-25{font-size:25px;}
+
+.miolo{display:none}
+/* ==============================
+		conteúdo - MIOLO
+============================== */
+.miolo{width:105px;padding:39px 15px 0 15px}
+.miolo nav{min-height:50px}
+.miolo nav .tit{float:left;}
+.miolo nav .size{float:right;font-family:'trajan_probold';padding-top:7px}
+.miolo nav .size .size-menos{font-size:14px}
+.miolo nav .size .size-mais{font-size:18px}
+.miolo nav .sub{float:right;padding:9px 10px 0 0}
+.miolo nav .sub a{display:block;float:right;font-family:"trajan_probold";font-size:14px;color:#294507;line-height:22px;padding:0 10px}
+.miolo nav .sub:hover > a{color:#FFF; text-shadow: 0 0 15px #FFFFFF, 0 0 1px #FFFFFF;border-radius:10px;background-color:#3D5C07}
+
+.miolo nav .sub2{padding:8px 0;margin-right:-10px}
+.miolo nav .sub2 a{display:block;float:right;font-family:"trajan_probold";font-size:14px;color:#294507;line-height:22px;padding:0 10px}
+.miolo nav .sub2:hover > a{color:#FFF; text-shadow: 0 0 15px #FFFFFF, 0 0 1px #FFFFFF;border-radius:10px;background-color:#3D5C07}
+
+.miolo .texto{}
+.miolo .foto{padding-top:30px}
+.miolo .video{padding-top:30px}
+.miolo .video object{position:absolute;z-index:1}
+.miolo .share{padding-top:30px}
+.miolo .share-fb{float:left;padding-right:30px}
+.miolo .share-go{float:left;padding-right:0px}
+.miolo .share-tw{float:left;}
+.miolo .comments-fb,
+.miolo .comments-go{padding-top:10px}
+
+
+/* ==============================
+			HEADER
+============================== */
+.logo{height:80px;font-family:"trajan_proregular";font-size:32px;color:#FFF; line-height:84px;padding:0px 0px 0 0;margin-top:15px;background:url('../img/mobile/logo.png') 122px center no-repeat;}
+.logo .paula{padding-right:80px}
+header{text-align:center}
+header .menu-btn{width:240px;height:21px;margin:0 auto}
+header .menu{float:left;}
+header .voltar{float:right;}
+header .menu, header .voltar{display:none;width:70px;height:21px;border-radius:10px 10px 0 0;background-color:#294507;-webkit-box-shadow:-2px 3px 2px 0px rgba(50, 50, 50, 0.7);-moz-box-shadow:-2px 3px 2px 0px rgba(50, 50, 50, 0.7);box-shadow:-2px 3px 2px 0px rgba(50, 50, 50, 0.7);}
+header .menu a, header .voltar a{font-family:'trajan_probold';font-size:14px;color:#EBF7DC;line-height:26px}
+header nav{position:relative;width:270px;min-height:250px;background-color:#fff9d5;border-radius:10px 10px 0 0;margin:0 auto}
+header nav ul.itens{}
+header nav ul.itens > li{overflow:hidden;background:url('../img/mobile/linha.png') bottom center no-repeat;}
+header nav ul.itens > li:last-child{background:none;}
+header nav ul.itens li a{display:block;font-family:'trajan_probold';font-size:19px;color:#294507;text-align:center;padding:12px 0}
+header nav ul.itens li.tit{height:40px;font-family:'trajan_probold';font-size:19px;color:#294507;line-height:40px;text-align:center;border-radius:10px 10px 0 0;border-bottom:#f0c463 1px solid;background:#f5d897;}
+header nav ul.itens li.sub{height:auto;font-family:Arial, Helvetica, sans-serif;font-size:14px;text-align:center;padding:30px 0 10px 0;background:none;}
+header nav ul.itens li > p{padding:15px 15px 15px 0;}
+header nav ul.itens li > h1{color:#294507;padding:0 15px 0 0;}
+header nav ul.itens{display:none}
+header nav ul.itens li.corpo{text-align:left;padding:15px 0 15px 15px}
+header nav ul.itens li.corpo-tecnicas{padding:15px 0 15px 30px}
+header nav ul.itens > li > a:hover{background:#f5d897 url('../img/mobile/linha.png') bottom center no-repeat;}
+header nav ul.itens > li:first-child > a:hover{border-radius:10px 10px 0 0}
+header nav ul.itens > li:last-child  > a:hover{background:#f5d897;}
+
+.tecnicas-menu{}
+.tecnicas-menu li{cursor:pointer;background:none;}
+.tecnicas-menu .header{height:5px;background:url('../img/menu_esq_header.png') top left no-repeat;}
+.tecnicas-menu .footer{height:5px;background:url('../img/menu_esq_footer.png') top left no-repeat;}
+.tecnicas-menu li .thumb{float:left;width:58px;height:49px;padding-right:10px}
+.tecnicas-menu li .thumb .mask{position:absolute;z-index:2;}
+.tecnicas-menu li .thumb .mini{width:58px;height:49px;border-radius:100px;z-index:3;}
+.tecnicas-menu .txtLabel{float:left;width:120px;font-size:16px;padding-left:10px}
+.tecnicas-menu li label{position:relative;display:table;cursor:pointer;height:45px;text-align:center;margin:0 auto}
+.tecnicas-menu li label p{*position: absolute;top: 50%;display: table-cell;vertical-align: middle;}
+.tecnicas-menu li label span{display:block;*position: relative;top: -50%;}
+.tecnicas-menu li .over{float:right;width:1px;}
+.tecnicas-menu li .over .barra-over{position:absolute;margin:48px 0 0 -180px}
+
+/* ==============================
+			FOOTER 
+============================== */
+footer{width:300px;margin:-13px auto 0 auto;}
+footer .aba{height:13px;background:url('../img/mobile/aba_meio.png') left top repeat-x;}
+footer .aba .esq{float:left;}
+footer .aba .dir{float:right;}
+
+footer .content{padding-bottom:15px;background-color:#f5d897;}
+footer .busca{width:242px;padding-top:15px;margin:0 auto;}
+footer .busca .fld-busca{float:left;width:200px;height:30px;font-size:16px;font-style:italic;padding:0 4px;border:#8d7541 1px solid;border-right:0;border-radius:5px 0 0 5px;background-color:#fdebc1;}
+footer .busca .btn-busca{float:left;width:32px;height:32px;cursor:pointer;border:#8d7541 1px solid;border-radius:0 5px 5px 0;background:#e1c586 url('../img/sprite.png') -509px -85px no-repeat}
+footer .rede-focial{padding:15px 0 0 19px}
+footer .rede-focial > div{float:left;width:44px;height:44px;cursor:pointer;text-indent:1000px;white-space:nowrap;overflow:hidden;margin:0 4px;background: url("../img/mobile/icon_redes.png") 0 0 no-repeat;}
+footer .rede-focial .rede-fb{background-position:0 0;}
+footer .rede-focial .rede-tw{background-position:-44px 0;}
+footer .rede-focial .rede-yt{background-position:-88px 0;}
+footer .rede-focial .rede-it{background-position:-133px 0;}
+footer .rede-focial .rede-go{background-position:-176px 0;}
+
+.aba2{height:13px;margin-top:-13px;background:url('../img/mobile/aba_meio.png') left top repeat-x;}
+.rodape{font-size:12px;text-align:center;padding:4px 0;background:#203101}
+.rodape a{color:#fff;text-decoration:underline}

@@ -1,0 +1,5 @@
+﻿@{
+    ViewBag.Title = @Model.TituloPagina;
+}
+
+@Html.Action("LoadConteudoByPagina","Home", new {@partialView = @Model.Modelos.PartialView, @pagina = @Model.Id, @categoria = @Model.CategoriaId, @subcategoria = 0})

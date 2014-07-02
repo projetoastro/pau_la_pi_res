@@ -1,0 +1,98 @@
+﻿@model IList<PaulaPires.Models.Categorias>
+<nav>
+    <ul>
+@foreach (var item in Model)
+{        
+    <li class="@item.CssClass">
+        
+        @if (item.PaginaId > 0)
+        {
+            <span><a href="/@item.UrlAmigavel/@item.Pagina.UrlAmigavel">@item.Nome </a></span>
+        }
+        else
+        {
+            <span><a href="#">@item.Nome </a></span>
+        }
+
+        @if (@item.HaveSubMenus)
+        {
+            <div>                
+                <ul class="top-menu">
+                    @foreach (var item2 in @item.SubCategoria)
+                    {
+                        <li>
+                            <a href="/@item.UrlAmigavel/@item2.UrlAmigavel/@item2.Pagina.UrlAmigavel"> - @item2.Nome</a>
+                        </li>
+                            
+                        if (@item2.HaveSubMenus)
+                        {
+                            foreach (var item3 in @item2.SubsCategorias)
+                            {
+                                <li class="sub"><a href="#"> - @item3.Nome</a></li>
+                                if (@item3.HaveSubMenus)
+                                {
+                                    foreach (var item4 in @item3.SubsCategorias)
+                                    {
+                                        <li class="sub"><a href="#"> - @item4.Nome</a></li>
+                                    }
+                                }
+                            }
+                        }
+                    }
+                </ul>
+            </div>
+        }
+    </li>
+}
+        @*<li class="videos"><span><a href="#">Vídeos</a></span>
+            <div>
+                <ul class="top-menu">
+                    <li><a href="#"> - Vídeo de Apresentação</a></li>
+                    <li><a href="#"> - As Técnicas</a></li>
+                    <li><a href="#"> - Temas Diversos:</a></li>
+                    <li class="sub"><a href="#">&bull; Chacras</a></li>
+                    <li class="sub"><a href="#">&bull; Alquimia</a></li>
+                </ul>
+            </div>
+        </li>
+        <li class="na-midia"><span><a href="#">Na mídia</a></span>
+            <div>
+                <ul class="top-menu">
+                    <li><a href="#"> - TV</a></li>
+                    <li><a href="#"> - Net</a></li>
+                    <li><a href="#"> - Mídia Impressa</a></li>
+                    <li><a href="#"> - Rádio</a></li>
+                </ul>
+            </div>
+        </li>
+        <li class="consulta-especial"><span><a href="#">Consulta Especial</a></span>
+            <div>
+                <ul class="top-menu">
+                    <li><a href="#"> - O que é?</a></li>
+                    <li><a href="#"> - Vídeo Explicativo</a></li>
+                    <li><a href="#"> - Contato</a></li>
+                    <li><a href="#"> - Formulário de Atendimento</a></li>
+                    <li><a href="#"> - Dúvidas</a></li>
+                </ul>
+            </div>
+        </li>
+        <li class="testes-online"><span><a href="#">Testes On-line</a></span>
+            <div>
+                <ul class="top-menu">
+                    <li><a href="#"> - Você se alimenta bem?</a></li>
+                    <li><a href="#"> - Os elementos da natureza estão em equilíbrio dentro de você?</a></li>
+                    <li><a href="#"> - Qual é seu Dosha (biotipo) dentro da Filosofia Ayurvédica?</a></li>
+                    <li><a href="#"> - Como transformar sua vida?</a></li>
+                </ul>
+            </div>
+        </li>
+        <li class="contato"><span><a href="#">Contato</a></span>
+            <!--
+                <ul class="top-menu">
+                    <li><a href="http://floraisastrologicos.com.br/Paula-Pires/155/Envio-de-Mensagem"> - Envio de Mensagem</a></li>
+                    <li><a href="http://floraisastrologicos.com.br/Paula-Pires/156/Indique%20este%20Site"> - Indique este Site</a></li>
+                </ul>
+                -->
+        </li>*@
+    </ul>
+        </nav>

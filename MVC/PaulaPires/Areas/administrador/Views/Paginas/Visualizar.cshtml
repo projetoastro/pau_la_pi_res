@@ -1,0 +1,261 @@
+﻿@model PaulaPires.Models.Paginas
+@{
+    ViewBag.Title = "Visualizar";
+    Layout = "~/Areas/administrador/Views/Shared/_Layout.cshtml";
+}
+<div class="row">
+    <div class="portlet box">
+        <div class="portlet-body form">
+            <!-- BEGIN FORM-->
+            <div class="form-body">
+                <h3 class="title-view">@Model.Id - @Model.TituloMenu [@Model.TituloPagina]
+                </h3>
+                <h4 class="form-section">
+                    Informações gerais</h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label col-md-3">
+                                Url Amigável:</label>
+                            <div class="col-md-9">
+                                <p class="form-control-static">
+                                    @Model.UrlAmigavel
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/span-->
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label col-md-3">
+                                Modelo:</label>
+                            <div class="col-md-9">
+                                <p class="form-control-static">
+                                    @Model.Modelos.Nome [@Model.Modelos.Id]
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/span-->
+                </div>
+                <!--/row-->
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label col-md-3">
+                                Descrição:</label>
+                            <div class="col-md-9">
+                                <p class="form-control-static">
+                                    @Model.Descricao
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/span-->
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label col-md-3">
+                                Imagem Compartilhada:</label>
+                            <div class="col-md-9">
+                                <p class="form-control-static">
+                                    <img src="/img/paginasCompartilha/@Model.ImagemCompartilha" width="50" height="40" />
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/span-->
+                </div>
+                <!--/row-->
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label col-md-3">
+                                Ordem:</label>
+                            <div class="col-md-9">
+                                <p class="form-control-static">
+                                    @Model.Orderby
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/span-->
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label col-md-3">
+                                Cadastro</label>
+                            <div class="col-md-9">
+                                <p class="form-control-static">
+                                    @Model.Created
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/span-->
+                </div>
+                <!--/row-->
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label col-md-3">
+                                Status:</label>
+                            <div class="col-md-9">
+                                <p class="form-control-static">
+                                    @if (@Model.Actived)
+                                    {
+                                        @:Ativo
+                                }
+                                    else
+                                    {
+                                        @:Inativo
+                                                                    }
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/span-->
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label col-md-3">
+                                Atualização</label>
+                            <div class="col-md-9">
+                                <p class="form-control-static">
+                                    @Model.Updated
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/span-->
+                </div>
+                <h4 class="form-section">
+                    Informações específicas</h4>
+                <div class="portlet-body">
+                    <h4 class="block">
+                        Categorias / subcategorias associadas</h4>
+                    @if (ViewBag.CategoriasSubCategoriasPaginas.Count > 0)
+                    {
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Categoria
+                                    </th>
+                                    <th>
+                                        Subcategoria
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in ViewBag.CategoriasSubCategoriasPaginas)
+                                {                                
+                                    <tr>
+                                        <td>@item.Categoria.Nome
+                                        </td>
+                                        <td>@item.SubCategoria.Nome [@item.SubCategoria.CategoriaId.Nome]
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>                                                
+                    }
+                    else
+                    {
+                        <div class="list-group-item">
+                            Nenhuma categoria associada</div>
+                    }
+                </div>
+                @Html.Action("LoadListFAQ", "Paginas", new { @paginaID = @Model.Id })
+                @Html.Action("LoadListImagens", "Paginas", new { @paginaID = @Model.Id })
+                @Html.Action("LoadListLinks", "Paginas", new { @paginaID = @Model.Id })
+                <div class="form-actions fluid">
+                    <div class="col-md-6">
+                        <a href="@Url.Action("Cadastrar", "Paginas", new { area = "administrador", pCadastro = @Model.Id })" class="btn green">
+                            <i class="fa fa-pencil"></i>Editar</a> <a class="btn red" href="@Url.Action("Cadastrar", @Model.Modelos.Controller, new { area = "administrador", pPaginaId = @Model.Id })">
+                                <i class="fa fa-edit"></i>Add conteúdo</a> <a href="@Url.Action("Index", "Paginas", new { area = "administrador" })" class="btn default">
+                                    Cancelar</a>
+                    </div>
+                </div>
+                <!-- END FORM-->
+            </div>
+        </div>
+    </div>
+</div>
+@section pageTitle{
+    Categorias <small>visualizar</small>
+}
+@section breadcrumb{
+    <li>Conteúdo <i class="fa fa-angle-right"></i></li>
+    <li><a href="@Url.Action("Index", "Paginas", new { area = "administrador" })">Páginas
+    </a><i class="fa fa-angle-right"></i></li>
+    <li>@Model.TituloMenu </li>
+}
+@section pagelevelpluginstyles{
+    <link rel="stylesheet" type="text/css" href="/Areas/administrador/assets/plugins/select2/select2.css" />
+    <link rel="stylesheet" type="text/css" href="/Areas/administrador/assets/plugins/select2/select2-metronic.css" />
+    <link rel="stylesheet" type="text/css" href="/Areas/administrador/assets/css/pages/categorias-visualizar.css" />
+}
+@section scriptsinline{
+    <script>
+        jQuery(document).ready(function () {
+            FormSamples.init();
+
+            $(".remover-faq").click(function () {
+                if (confirm("Deseja realmente deletar este item?")) {
+                    var itemId = $(this).data("value");
+                    $.ajax({
+                        type: "POST",
+                        url: "/administrador/ConteudoFAQ/Deletar",
+                        data: { pCadastro: itemId },
+                        success: function (result) {
+                            alert("Item deletado com sucesso!")
+                            window.location.reload(true);
+                        },
+                        dataType: "JSON"
+                    });
+                }
+                else { return false; }
+            });
+
+            $(".remover-imagem").click(function () {
+                if (confirm("Deseja realmente deletar este item?")) {
+                    var itemId = $(this).data("value");
+                    $.ajax({
+                        type: "POST",
+                        url: "/administrador/ConteudoImagens/Deletar",
+                        data: { pCadastro: itemId },
+                        success: function (result) {
+                            alert("Item deletado com sucesso!")
+                            window.location.reload(true);
+                        },
+                        dataType: "JSON"
+                    });
+                }
+                else { return false; }
+            });
+
+            $(".remover-links").click(function () {
+                if (confirm("Deseja realmente deletar este item?")) {
+                    var itemId = $(this).data("value");
+                    $.ajax({
+                        type: "POST",
+                        url: "/administrador/ConteudoLinks/Deletar",
+                        data: { pCadastro: itemId },
+                        success: function (result) {
+                            alert("Item deletado com sucesso!")
+                            window.location.reload(true);
+                        },
+                        dataType: "JSON"
+                    });
+                }
+                else { return false; }
+            });
+
+        });
+    </script>
+}
+@section pagelevelscripts{
+    <script src="/Areas/administrador/assets/scripts/core/app.js"></script>
+    <script src="/Areas/administrador/assets/scripts/custom/form-samples.js"></script>
+}
+@section pagelevelplugins{
+    <script type="text/javascript" src="/Areas/administrador/assets/plugins/select2/select2.min.js"></script>
+}
